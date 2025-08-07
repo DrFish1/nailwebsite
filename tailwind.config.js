@@ -7,9 +7,9 @@ module.exports = {
     extend: {
       colors: {
         'nail-black': '#1C2526',
-        'nail-pink': '#f8bbd0',
-        'nail-pink-light': '#fcd5e1',
-        'nail-pink-dark': '#f093aa',
+        'nail-pink': '#FF69B4',
+        'nail-pink-light': '#FFB6C1',
+        'nail-pink-dark': '#DC143C',
       },
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif'],

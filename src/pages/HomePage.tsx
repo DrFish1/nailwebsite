@@ -3,7 +3,7 @@ import { ChevronRight, Sparkles, Heart, Shield, Droplet, RefreshCw, Palette, Use
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import RotatingText from '../components/RotatingText';
-import Orb from '../components/Orb';
+import Aurora from '../components/Aurora';
 
 const HomePage: React.FC = () => {
   // Booking state
@@ -171,16 +171,21 @@ const HomePage: React.FC = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden">
-        {/* Animated Grid Background */}
+        {/* Aurora Background */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(248,187,208,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(248,187,208,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-nail-pink/5 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-nail-pink/3 rounded-full blur-2xl animate-pulse delay-1000"></div>
+          <Aurora 
+            colorStops={["#FF69B4", "#FFB6C1", "#FF1493"]} 
+            amplitude={1.5}
+            blend={0.7}
+            speed={0.8}
+          />
         </div>
 
-        {/* Floating Orb */}
-        <div className="absolute top-20 right-20 w-64 h-64 opacity-60">
-          <Orb hue={330} hoverIntensity={0.3} />
+        {/* Animated Grid Background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,105,180,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,105,180,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-nail-pink/5 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-nail-pink/3 rounded-full blur-2xl animate-pulse delay-1000"></div>
         </div>
 
         <div className="relative z-10 flex items-center min-h-screen px-4 sm:px-6 lg:px-8">
@@ -200,12 +205,14 @@ const HomePage: React.FC = () => {
                   <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
                     <span className="block mb-2">Experience</span>
                     <span className="block">
-                      <RotatingText
-                        texts={amazingSynonyms}
-                        rotationInterval={2500}
-                        mainClassName="inline-block bg-gradient-to-r from-nail-pink via-nail-pink-dark to-nail-pink-light px-6 py-3 rounded-2xl text-black font-bold shadow-2xl shadow-nail-pink/30 border border-nail-pink/40 mr-4"
-                        elementLevelClassName="text-black font-bold"
-                      />
+                      <span className="inline-block bg-gradient-to-r from-nail-pink via-nail-pink-dark to-nail-pink-light px-6 py-3 rounded-2xl text-black font-bold shadow-2xl shadow-nail-pink/30 border border-nail-pink/40 mr-4">
+                        <RotatingText
+                          texts={amazingSynonyms}
+                          rotationInterval={2500}
+                          mainClassName="inline-block"
+                          elementLevelClassName="text-black font-bold"
+                        />
+                      </span>
                       <span className="text-white">Nails</span>
                     </span>
                     <span className="block mt-4 text-2xl sm:text-3xl lg:text-4xl font-light text-gray-300 leading-relaxed">
@@ -269,31 +276,34 @@ const HomePage: React.FC = () => {
 
               {/* Right Column - Visual Elements */}
               <div className="relative lg:flex hidden justify-center items-center">
-                <div className="relative w-96 h-96">
-                  {/* Main Orb */}
-                  <div className="absolute inset-0 scale-150">
-                    <Orb hue={330} hoverIntensity={0.4} />
-                  </div>
-                  
+                <div className="relative w-96 h-96 flex items-center justify-center">
                   {/* Floating Cards */}
-                  <div className="absolute -top-8 -left-8 bg-black/40 backdrop-blur-md border border-nail-pink/20 rounded-xl p-4 animate-pulse">
+                  <div className="absolute -top-8 -left-8 bg-black/40 backdrop-blur-md border border-nail-pink/20 rounded-xl p-4 animate-pulse hover:scale-105 transition-transform">
                     <div className="flex items-center space-x-2">
                       <Heart className="w-5 h-5 text-nail-pink" />
                       <span className="text-sm text-white">BIAB Natural</span>
                     </div>
                   </div>
                   
-                  <div className="absolute -bottom-8 -right-8 bg-black/40 backdrop-blur-md border border-nail-pink/20 rounded-xl p-4 animate-pulse delay-500">
+                  <div className="absolute -bottom-8 -right-8 bg-black/40 backdrop-blur-md border border-nail-pink/20 rounded-xl p-4 animate-pulse delay-500 hover:scale-105 transition-transform">
                     <div className="flex items-center space-x-2">
                       <Sparkles className="w-5 h-5 text-nail-pink" />
                       <span className="text-sm text-white">Gel-X Extensions</span>
                     </div>
                   </div>
                   
-                  <div className="absolute -top-4 -right-16 bg-black/40 backdrop-blur-md border border-nail-pink/20 rounded-xl p-4 animate-pulse delay-1000">
+                  <div className="absolute -top-4 -right-16 bg-black/40 backdrop-blur-md border border-nail-pink/20 rounded-xl p-4 animate-pulse delay-1000 hover:scale-105 transition-transform">
                     <div className="flex items-center space-x-2">
                       <Palette className="w-5 h-5 text-nail-pink" />
                       <span className="text-sm text-white">Custom Art</span>
+                    </div>
+                  </div>
+
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black/30 backdrop-blur-md border border-nail-pink/30 rounded-2xl p-8 hover:scale-105 transition-transform">
+                    <div className="text-center">
+                      <Sparkles className="w-12 h-12 text-nail-pink mx-auto mb-3" />
+                      <h3 className="text-xl font-bold text-white mb-2">Premium Artistry</h3>
+                      <p className="text-gray-300 text-sm">Crafted with Precision</p>
                     </div>
                   </div>
                 </div>
