@@ -180,50 +180,58 @@ const HomePage: React.FC = () => {
         
         {/* Content positioned over the orb */}
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in drop-shadow-2xl">
-            <span className="block mb-2">
-              Experience{' '}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-8 animate-fade-in drop-shadow-2xl leading-tight">
+            <span className="block mb-4">
+              <span className="text-white">Experience </span>
               <RotatingText
                 texts={amazingSynonyms}
                 rotationInterval={2500}
-                mainClassName="inline-block bg-nail-pink px-3 py-1 rounded-lg text-white drop-shadow-lg"
-                elementLevelClassName="text-white"
-              />{' '}
-              Nails
+                mainClassName="inline-block bg-gradient-to-r from-nail-pink to-pink-500 px-4 py-2 rounded-xl text-white drop-shadow-lg shadow-xl shadow-nail-pink/50 border border-nail-pink/30"
+                elementLevelClassName="text-white font-bold"
+              />
+              <span className="text-white"> Nails</span>
             </span>
-            <span className="block text-white drop-shadow-2xl">Express Yourself</span>
+            <span className="block text-white drop-shadow-2xl text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light">Express Yourself</span>
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 animate-slide-up drop-shadow-lg max-w-3xl mx-auto">
             I create beautiful, healthy nails that reflect your unique style and personality. 
             From natural enhancements to stunning nail art - let me bring your vision to life.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in">
             <a 
               href="#booking"
-              className="group relative overflow-hidden bg-gradient-to-r from-nail-pink to-pink-500 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-nail-pink/50 active:scale-95 inline-flex items-center justify-center transform-gpu"
+              className="group relative overflow-hidden bg-gradient-to-r from-nail-pink via-pink-500 to-nail-pink text-white font-bold py-5 px-10 rounded-2xl transition-all duration-300 hover:scale-110 active:scale-95 inline-flex items-center justify-center transform-gpu shadow-2xl shadow-nail-pink/40 border border-nail-pink/50"
+              style={{
+                boxShadow: '0 0 30px rgba(255, 105, 180, 0.4), 0 0 60px rgba(255, 105, 180, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.1)'
+              }}
               onClick={(e) => {
                 e.preventDefault();
                 document.querySelector('#booking')?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-pink-400 to-nail-pink opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-              <span className="absolute inset-0 bg-white/20 scale-0 group-active:scale-100 transition-transform duration-150 rounded-xl"></span>
-              <span className="relative z-10 flex items-center">
+              <span className="absolute inset-0 bg-gradient-to-r from-pink-400 via-nail-pink to-pink-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></span>
+              <span className="absolute inset-0 bg-white/20 scale-0 group-active:scale-100 transition-transform duration-150 rounded-2xl"></span>
+              <span className="absolute -inset-1 bg-gradient-to-r from-nail-pink to-pink-500 rounded-2xl blur-md opacity-30 group-hover:opacity-70 transition-opacity duration-300"></span>
+              <span className="relative z-10 flex items-center text-lg">
                 Book with Me
-                <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
+                <ChevronRight className="ml-3 group-hover:translate-x-2 transition-transform duration-300" size={24} />
               </span>
             </a>
             <a 
               href="#services"
-              className="group relative overflow-hidden bg-transparent border-2 border-nail-pink text-nail-pink hover:text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-nail-pink/30 active:scale-95 inline-flex items-center justify-center transform-gpu"
+              className="group relative overflow-hidden bg-black/20 border-2 border-nail-pink text-nail-pink hover:text-white font-bold py-5 px-10 rounded-2xl transition-all duration-300 hover:scale-110 active:scale-95 inline-flex items-center justify-center transform-gpu backdrop-blur-sm"
+              style={{
+                boxShadow: '0 0 20px rgba(255, 105, 180, 0.3), inset 0 0 20px rgba(255, 105, 180, 0.05)'
+              }}
               onClick={(e) => {
                 e.preventDefault();
                 document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-nail-pink to-pink-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-              <span className="absolute inset-0 bg-white/10 scale-0 group-active:scale-100 transition-transform duration-150 rounded-xl"></span>
-              <span className="relative z-10">View My Services</span>
+              <span className="absolute inset-0 bg-gradient-to-r from-nail-pink to-pink-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+              <span className="absolute inset-0 bg-white/10 scale-0 group-active:scale-100 transition-transform duration-150 rounded-2xl"></span>
+              <span className="absolute -inset-1 bg-gradient-to-r from-nail-pink to-pink-500 rounded-2xl blur-md opacity-0 group-hover:opacity-50 transition-opacity duration-300"></span>
+              <span className="relative z-10 text-lg">View My Services</span>
             </a>
           </div>
         </div>

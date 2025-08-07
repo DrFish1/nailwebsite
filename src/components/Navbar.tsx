@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className="sticky top-0 z-50 bg-black/90 backdrop-blur-sm border-b border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-24">
           <div className="flex items-center">
             <a 
               href="#home"
@@ -28,11 +28,12 @@ const Navbar: React.FC = () => {
               }}
             >
               <div className="relative">
-                <div className="absolute inset-0 bg-nail-pink rounded-full blur-lg opacity-50 group-hover:opacity-75 transition-opacity duration-300 scale-110"></div>
+                <div className="absolute inset-0 bg-nail-pink rounded-full blur-xl opacity-60 group-hover:opacity-90 transition-opacity duration-300 scale-125"></div>
+                <div className="absolute inset-0 bg-nail-pink rounded-full blur-md opacity-40 group-hover:opacity-70 transition-opacity duration-300 scale-110"></div>
                 <img 
                   src="/logo.png" 
                   alt="Nail Salon Logo" 
-                  className="relative z-10 h-12 w-auto transition-transform duration-300 group-hover:scale-105"
+                  className="relative z-10 h-20 w-auto transition-transform duration-300 group-hover:scale-110 drop-shadow-lg"
                 />
               </div>
             </a>
@@ -46,9 +47,12 @@ const Navbar: React.FC = () => {
                   href={link.path}
                   className={`font-medium transition-all duration-300 ${
                     link.label === 'Book Now' 
-                      ? 'group relative overflow-hidden bg-gradient-to-r from-nail-pink to-pink-500 text-white px-6 py-2 rounded-lg hover:scale-105 hover:shadow-xl hover:shadow-nail-pink/40 active:scale-95 transform-gpu' 
+                      ? 'group relative overflow-hidden bg-gradient-to-r from-nail-pink via-pink-500 to-nail-pink text-white px-6 py-3 rounded-xl hover:scale-110 active:scale-95 transform-gpu border border-nail-pink/50 shadow-lg shadow-nail-pink/30' 
                       : 'text-gray-300 hover:text-nail-pink transition-colors duration-200'
                   }`}
+                  style={link.label === 'Book Now' ? {
+                    boxShadow: '0 0 20px rgba(255, 105, 180, 0.3), 0 0 40px rgba(255, 105, 180, 0.1), inset 0 0 10px rgba(255, 255, 255, 0.1)'
+                  } : {}}
                   onClick={(e) => {
                     e.preventDefault();
                     const element = document.querySelector(link.path);
@@ -57,9 +61,10 @@ const Navbar: React.FC = () => {
                 >
                   {link.label === 'Book Now' ? (
                     <>
-                      <span className="absolute inset-0 bg-gradient-to-r from-pink-400 to-nail-pink opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></span>
-                      <span className="absolute inset-0 bg-white/20 scale-0 group-active:scale-100 transition-transform duration-150 rounded-lg"></span>
-                      <span className="relative z-10">{link.label}</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-pink-400 via-nail-pink to-pink-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse rounded-xl"></span>
+                      <span className="absolute inset-0 bg-white/20 scale-0 group-active:scale-100 transition-transform duration-150 rounded-xl"></span>
+                      <span className="absolute -inset-0.5 bg-gradient-to-r from-nail-pink to-pink-500 rounded-xl blur-sm opacity-50 group-hover:opacity-80 transition-opacity duration-300"></span>
+                      <span className="relative z-10 font-bold">{link.label}</span>
                     </>
                   ) : (
                     link.label

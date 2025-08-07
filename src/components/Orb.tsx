@@ -112,37 +112,51 @@ const frag = /* glsl */ `
     }
 
     vec4 draw(vec2 uv) {
-      vec3 color1 = adjustHue(baseColor1, hue); // Pink circle
-      vec3 color2 = adjustHue(baseColor2, hue); // Pink highlights
+      vec3 color1 = adjustHue(baseColor1, hue); // Bright pink circle
+      vec3 color2 = adjustHue(baseColor2, hue); // Lighter pink highlights  
       vec3 color3 = adjustHue(baseColor3, hue); // Black backdrop
       
       float ang = atan(uv.y, uv.x);
       float len = length(uv);
       
-      // Create a smooth circular gradient
-      float circleRadius = 0.7;
-      float circleMask = 1.0 - smoothstep(circleRadius - 0.3, circleRadius, len);
+      // Create a strong, fully visible pink circle
+      float circleCore = 1.0 - smoothstep(0.3, 0.6, len);
       
-      // Add subtle noise for organic feel
-      float n0 = snoise3(vec3(uv * noiseScale, iTime * 0.3)) * 0.3 + 0.7;
+      // Add pulsing glow effect
+      float pulse = sin(iTime * 2.0) * 0.1 + 0.9;
       
-      // Create pink circle with soft edges
-      float pinkCircle = smoothstep(0.8, 0.4, len) * n0;
+      // Add subtle noise for organic movement
+      float n0 = snoise3(vec3(uv * noiseScale, iTime * 0.4)) * 0.2 + 0.8;
       
-      // Add rotating highlight
-      float highlight = cos(ang + iTime * 1.0) * 0.5 + 0.5;
-      highlight *= smoothstep(0.9, 0.3, len) * 0.4;
+      // Create bright pink core with strong glow
+      float pinkCore = circleCore * pulse * n0;
       
-      // Mix colors: start with black, add pink circle, add highlights
-      vec3 col = color3; // Start with black backdrop
-      col = mix(col, color1, pinkCircle); // Add pink circle
-      col = mix(col, color2, highlight); // Add pink highlights
+      // Add outer glow ring
+      float glowRing = (1.0 - smoothstep(0.4, 1.0, len)) * 0.6 * pulse;
       
-      // Create soft fade to black at edges
-      float fade = smoothstep(1.2, 0.0, len);
-      col *= fade;
+      // Add rotating highlights for futuristic feel
+      float highlight1 = cos(ang + iTime * 1.5) * 0.5 + 0.5;
+      float highlight2 = cos(ang * 2.0 + iTime * -1.0) * 0.5 + 0.5;
+      float combinedHighlight = (highlight1 + highlight2 * 0.5) * glowRing * 0.7;
       
-      col = clamp(col, 0.0, 1.0);
+      // Start with black backdrop
+      vec3 col = color3;
+      
+      // Add bright pink core (fully visible)
+      col = mix(col, color1 * 1.2, pinkCore);
+      
+      // Add outer glow
+      col = mix(col, color1 * 0.8, glowRing);
+      
+      // Add bright highlights
+      col = mix(col, color2 * 1.5, combinedHighlight);
+      
+      // Ensure the orb stays visible - minimal fade
+      float visibility = 1.0 - smoothstep(0.9, 1.2, len);
+      col *= visibility;
+      
+      // Boost overall brightness for futuristic glow
+      col = clamp(col * 1.3, 0.0, 2.0);
       
       return extractAlpha(col);
     }
