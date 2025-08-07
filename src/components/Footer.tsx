@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Twitter, MapPin, Phone, Mail, Clock } from 'lucide-react';
 
 const Footer: React.FC = () => {
@@ -10,7 +9,7 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-nail-pink text-xl font-bold mb-4">Luxe Nails</h3>
             <p className="text-gray-400 mb-4">
-              Your destination for luxury nail care and stunning nail art.
+              My passion is creating beautiful, personalized nail experiences that make you feel confident and elegant.
             </p>
             <div className="flex space-x-4">
               <a href="https://facebook.com/luxenails" className="text-gray-400 hover:text-nail-pink transition-colors">
@@ -29,24 +28,52 @@ const Footer: React.FC = () => {
             <h4 className="text-white text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/services" className="text-gray-400 hover:text-nail-pink transition-colors">
-                  Our Services
-                </Link>
+                <a 
+                  href="#services"
+                  className="text-gray-400 hover:text-nail-pink transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  My Services
+                </a>
               </li>
               <li>
-                <Link to="/booking" className="text-gray-400 hover:text-nail-pink transition-colors">
+                <a 
+                  href="#booking"
+                  className="text-gray-400 hover:text-nail-pink transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector('#booking')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
                   Book Appointment
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/gallery" className="text-gray-400 hover:text-nail-pink transition-colors">
+                <a 
+                  href="#gallery"
+                  className="text-gray-400 hover:text-nail-pink transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector('#gallery')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
                   Gallery
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/about" className="text-gray-400 hover:text-nail-pink transition-colors">
-                  About Us
-                </Link>
+                <a 
+                  href="#about"
+                  className="text-gray-400 hover:text-nail-pink transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  About Me
+                </a>
               </li>
             </ul>
           </div>
@@ -64,7 +91,7 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center text-gray-400">
                 <Mail size={18} className="mr-2 text-nail-pink" />
-                <span>info@luxenails.com</span>
+                <span>leanna@luxenails.com</span>
               </li>
             </ul>
           </div>
@@ -94,12 +121,12 @@ const Footer: React.FC = () => {
         <div className="mt-8 pt-8 border-t border-gray-800 text-center">
           <p className="text-gray-400">
             © 2024 Luxe Nails. All rights reserved. | 
-            <Link to="/privacy" className="ml-2 hover:text-nail-pink transition-colors">
+            <span className="ml-2 hover:text-nail-pink transition-colors cursor-pointer">
               Privacy Policy
-            </Link> | 
-            <Link to="/terms" className="ml-2 hover:text-nail-pink transition-colors">
+            </span> | 
+            <span className="ml-2 hover:text-nail-pink transition-colors cursor-pointer">
               Terms of Service
-            </Link>
+            </span>
           </p>
         </div>
       </div>
