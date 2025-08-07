@@ -6,7 +6,8 @@ import FAQ from '../components/FAQ';
 const HomePage: React.FC = () => {
   // Booking state
   const [step, setStep] = useState(1);
-  const [selectedService, setSelectedService] = useState('');
+  const [selectedServices, setSelectedServices] = useState<{[key: string]: string}>({});
+  const [expandedService, setExpandedService] = useState<string>('');
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
   const [customerInfo, setCustomerInfo] = useState({
@@ -16,14 +17,47 @@ const HomePage: React.FC = () => {
     notes: '',
   });
 
-  const services = [
-    'Gel-X Extensions - From $75',
-    'BIAB Natural Nails - From $55',
-    'Infills & Maintenance - From $45',
-    'Luxury Pedicure - From $65',
-    'Safe Removals - From $25',
-    'Custom Art & Extras - From $15',
-  ];
+  const services = {
+    'Gel-X Extensions': [
+      { name: 'One Colour S/M Length', price: 35 },
+      { name: 'One Colour L Length', price: 37 },
+      { name: 'French/Simple Nail Art S/M Length', price: 40 },
+      { name: 'French/Simple Nail Art L Length', price: 42 },
+      { name: 'Intricate Nail Art S/M Length', price: 45 },
+      { name: 'Intricate Nail Art L Length', price: 47 }
+    ],
+    'BIAB Natural Nails': [
+      { name: 'Plain BIAB', price: 30 },
+      { name: 'with Gel Colour', price: 33 },
+      { name: 'with French/Simple Art', price: 35 },
+      { name: 'with Intricate Nail Art', price: 38 }
+    ],
+    'Infills & Maintenance': [
+      { name: 'Plain BIAB Infill S/M Length', price: 30 },
+      { name: 'Plain BIAB Infill L Length', price: 33 },
+      { name: 'with Gel Colour S/M Length', price: 35 },
+      { name: 'with Gel Colour L Length', price: 37 },
+      { name: 'with French/Simple Nail Art S/M Length', price: 39 },
+      { name: 'with Intricate Nail Art S/M Length', price: 40 },
+      { name: 'with Intricate Nail Art L Length', price: 42 }
+    ],
+    'Pedicure': [
+      { name: 'Gel Polish', price: 25 },
+      { name: 'Added Extension', price: 30 },
+      { name: 'Plain BIAB', price: 27 },
+      { name: 'BIAB with French', price: 30 },
+      { name: 'Colour Free (cut, file, cuticle care)', price: 15 }
+    ],
+    'Removals & Extras': [
+      { name: 'Gel-X Extension Removal', price: 10 },
+      { name: 'BIAB Soak Off', price: 8 },
+      { name: 'Acrylic Removal', price: 12 },
+      { name: 'Colour Free Manicure', price: 10 },
+      { name: '3D Designs', price: 3 },
+      { name: 'Added Gems/Crystals', price: 2 },
+      { name: 'Chrome', price: 2 }
+    ]
+  };
 
   const availableTimes = [
     '9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM',
@@ -77,6 +111,29 @@ const HomePage: React.FC = () => {
       duration: '30+ min'
     },
   ];
+
+  const handleServiceToggle = (mainService: string, subService?: string) => {
+    if (subService) {
+      setSelectedServices(prev => ({
+        ...prev,
+        [mainService]: subService
+      }));
+    } else {
+      if (selectedServices[mainService]) {
+        const newServices = { ...selectedServices };
+        delete newServices[mainService];
+        setSelectedServices(newServices);
+      }
+      setExpandedService(expandedService === mainService ? '' : mainService);
+    }
+  };
+
+  const calculateTotal = () => {
+    return Object.entries(selectedServices).reduce((total, [mainService, subService]) => {
+      const serviceOption = services[mainService as keyof typeof services].find(s => s.name === subService);
+      return total + (serviceOption?.price || 0);
+    }, 0);
+  };
 
   const handleNextStep = () => {
     if (step < 3) setStep(step + 1);
@@ -234,23 +291,80 @@ const HomePage: React.FC = () => {
             {/* Step Content */}
             {step === 1 && (
               <div>
-                <h3 className="text-2xl font-bold text-white mb-6">Select Your Service</h3>
-                <p className="text-gray-300 mb-6">Choose the service you'd like me to provide:</p>
-                <div className="grid grid-cols-1 gap-4">
-                  {services.map((service) => (
-                    <button
-                      key={service}
-                      onClick={() => setSelectedService(service)}
-                      className={`p-4 rounded-lg border-2 text-left transition-all ${
-                        selectedService === service
-                          ? 'border-nail-pink bg-nail-pink/10 text-white'
-                          : 'border-gray-800 hover:border-nail-pink/50 text-gray-300'
-                      }`}
-                    >
-                      {service}
-                    </button>
+                <h3 className="text-2xl font-bold text-white mb-6">Select Your Services</h3>
+                <p className="text-gray-300 mb-6">Choose the services you'd like. Click on a service to see available options:</p>
+                
+                <div className="space-y-4">
+                  {Object.entries(services).map(([mainService, options]) => (
+                    <div key={mainService} className="border border-gray-800 rounded-lg overflow-hidden">
+                      <button
+                        onClick={() => handleServiceToggle(mainService)}
+                        className={`w-full p-4 text-left flex items-center justify-between transition-all ${
+                          selectedServices[mainService]
+                            ? 'bg-nail-pink/10 border-nail-pink text-white'
+                            : 'bg-black/50 hover:bg-gray-800/50 text-gray-300'
+                        }`}
+                      >
+                        <div className="flex items-center">
+                          <span className="font-semibold">{mainService}</span>
+                          {selectedServices[mainService] && (
+                            <span className="ml-3 text-nail-pink text-sm">
+                              ✓ {selectedServices[mainService]}
+                            </span>
+                          )}
+                        </div>
+                        <ChevronRight 
+                          className={`transform transition-transform ${
+                            expandedService === mainService ? 'rotate-90' : ''
+                          }`} 
+                          size={20} 
+                        />
+                      </button>
+                      
+                      {expandedService === mainService && (
+                        <div className="border-t border-gray-800 bg-black/30 p-4">
+                          <div className="grid gap-2">
+                            {options.map((option) => (
+                              <button
+                                key={option.name}
+                                onClick={() => handleServiceToggle(mainService, option.name)}
+                                className={`p-3 rounded-lg text-left flex items-center justify-between transition-all ${
+                                  selectedServices[mainService] === option.name
+                                    ? 'bg-nail-pink text-white'
+                                    : 'bg-gray-900/50 hover:bg-gray-800/50 text-gray-300'
+                                }`}
+                              >
+                                <span>{option.name}</span>
+                                <span className="font-bold">£{option.price}</span>
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   ))}
                 </div>
+
+                {Object.keys(selectedServices).length > 0 && (
+                  <div className="mt-6 p-4 bg-nail-pink/10 border border-nail-pink/30 rounded-lg">
+                    <h4 className="text-nail-pink font-semibold mb-2">Selected Services:</h4>
+                    <div className="space-y-2">
+                      {Object.entries(selectedServices).map(([mainService, subService]) => {
+                        const serviceOption = services[mainService as keyof typeof services].find(s => s.name === subService);
+                        return (
+                          <div key={mainService} className="flex justify-between text-gray-300">
+                            <span>{mainService}: {subService}</span>
+                            <span className="text-nail-pink font-bold">£{serviceOption?.price}</span>
+                          </div>
+                        );
+                      })}
+                      <div className="pt-2 border-t border-nail-pink/30 flex justify-between text-white font-bold">
+                        <span>Total:</span>
+                        <span className="text-nail-pink">£{calculateTotal()}</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             )}
 
@@ -350,8 +464,25 @@ const HomePage: React.FC = () => {
             {step === 3 && (
               <div className="mt-6 p-4 bg-nail-pink/10 border border-nail-pink/30 rounded-lg">
                 <h4 className="text-nail-pink font-semibold mb-2">Appointment Summary</h4>
-                <div className="text-gray-300 space-y-1">
-                  <p><span className="text-gray-400">Service:</span> {selectedService}</p>
+                <div className="text-gray-300 space-y-2">
+                  <div>
+                    <span className="text-gray-400">Services:</span>
+                    <div className="ml-4 space-y-1 mt-1">
+                      {Object.entries(selectedServices).map(([mainService, subService]) => {
+                        const serviceOption = services[mainService as keyof typeof services].find(s => s.name === subService);
+                        return (
+                          <div key={mainService} className="flex justify-between">
+                            <span>{mainService}: {subService}</span>
+                            <span className="text-nail-pink font-bold">£{serviceOption?.price}</span>
+                          </div>
+                        );
+                      })}
+                      <div className="pt-1 border-t border-nail-pink/30 flex justify-between font-bold">
+                        <span>Total:</span>
+                        <span className="text-nail-pink">£{calculateTotal()}</span>
+                      </div>
+                    </div>
+                  </div>
                   <p><span className="text-gray-400">With:</span> Leanna</p>
                   <p><span className="text-gray-400">Date:</span> {selectedDate}</p>
                   <p><span className="text-gray-400">Time:</span> {selectedTime}</p>
@@ -372,11 +503,11 @@ const HomePage: React.FC = () => {
                 <button
                   onClick={handleNextStep}
                   disabled={
-                    (step === 1 && !selectedService) ||
+                    (step === 1 && Object.keys(selectedServices).length === 0) ||
                     (step === 2 && (!selectedDate || !selectedTime))
                   }
                   className={`px-6 py-3 rounded-lg font-semibold transition-all ml-auto ${
-                    ((step === 1 && !selectedService) ||
+                    ((step === 1 && Object.keys(selectedServices).length === 0) ||
                      (step === 2 && (!selectedDate || !selectedTime)))
                       ? 'bg-gray-800 text-gray-500 cursor-not-allowed'
                       : 'bg-nail-pink text-white hover:bg-nail-pink-light'
