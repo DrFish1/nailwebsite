@@ -144,74 +144,105 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-black to-nail-black">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="section-heading text-center">Why Choose Me?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center group">
-              <div className="w-20 h-20 bg-nail-pink/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-nail-pink/20 transition-all">
-                <Sparkles className="text-nail-pink" size={32} />
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2">Premium Quality</h3>
-              <p className="text-gray-400">
-                I use only the finest products and latest techniques to create stunning, long-lasting results that exceed your expectations
-              </p>
-            </div>
-            <div className="text-center group">
-              <div className="w-20 h-20 bg-nail-pink/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-nail-pink/20 transition-all">
-                <Heart className="text-nail-pink" size={32} />
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2">Personalized Care</h3>
-              <p className="text-gray-400">
-                Every appointment is tailored to you. I listen to your vision and bring years of expertise to create your perfect nails
-              </p>
-            </div>
-            <div className="text-center group">
-              <div className="w-20 h-20 bg-nail-pink/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-nail-pink/20 transition-all">
-                <Shield className="text-nail-pink" size={32} />
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2">Health & Safety</h3>
-              <p className="text-gray-400">
-                I prioritize the health of your natural nails with strict sanitization and gentle techniques for lasting nail health
-              </p>
-            </div>
+      {/* Premium Services Section */}
+      <section id="services" className="py-20 px-4 bg-gradient-to-b from-black to-nail-black">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              My Premium <span className="text-nail-pink">Nail Services</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              I offer luxury nail treatments designed to enhance your natural beauty and boost your confidence. 
+              Each service is carefully crafted with premium products and personalized attention.
+            </p>
           </div>
-        </div>
-      </section>
 
-      {/* Popular Services */}
-      <section className="py-20 px-4 bg-nail-black">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="section-heading text-center">My Most Popular Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { name: 'Gel-X Extensions', price: 'From $75', time: '90 min' },
-              { name: 'BIAB Natural Nails', price: 'From $55', time: '60 min' },
-              { name: 'Custom Nail Art', price: 'From $15', time: '30+ min' },
-              { name: 'Luxury Pedicure', price: 'From $65', time: '75 min' },
-            ].map((service, index) => (
-              <div key={index} className="bg-black/50 border border-gray-800 rounded-lg p-6 hover:border-nail-pink transition-all group">
-                <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-nail-pink transition-colors">
-                  {service.name}
-                </h3>
-                <p className="text-nail-pink text-2xl font-bold mb-2">{service.price}</p>
-                <p className="text-gray-400 text-sm">{service.time}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {detailedServices.map((service, index) => (
+              <div
+                key={index}
+                className="group relative bg-gradient-to-br from-black/80 to-nail-black/60 border border-gray-800/50 rounded-2xl p-8 hover:border-nail-pink/50 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl hover:shadow-nail-pink/10"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-nail-pink/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+                
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-nail-pink/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-nail-pink/20 transition-colors duration-300">
+                    {service.icon}
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-nail-pink transition-colors duration-300">
+                    {service.name}
+                  </h3>
+                  
+                  <p className="text-gray-300 leading-relaxed mb-6">
+                    {service.description}
+                  </p>
+                  
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-800/50">
+                    <div className="text-nail-pink font-bold text-lg">
+                      {service.price}
+                    </div>
+                    <div className="text-gray-400 text-sm">
+                      {service.duration}
+                    </div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
-          <div className="text-center mt-8">
+
+          <div className="bg-gradient-to-r from-nail-pink to-pink-600 rounded-2xl p-8 text-center mb-12">
+            <h3 className="text-3xl font-bold text-white mb-4">
+              Ready to Experience Luxury?
+            </h3>
+            <p className="text-white/90 mb-8 text-lg">
+              Book your appointment today and let me create the perfect nails for you
+            </p>
             <a 
-              href="#services"
-              className="btn-primary inline-flex items-center"
+              href="#booking"
+              className="bg-white text-nail-pink hover:bg-gray-100 font-bold py-4 px-8 rounded-lg transition-all duration-300 inline-flex items-center text-lg shadow-lg"
               onClick={(e) => {
                 e.preventDefault();
-                document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' });
+                document.querySelector('#booking')?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
-              View All My Services
-              <ChevronRight className="ml-2" size={20} />
+              Book My Appointment
+              <ChevronRight className="ml-2" size={24} />
             </a>
+          </div>
+
+          <div className="bg-black/50 border border-gray-800 rounded-2xl p-8">
+            <h3 className="text-2xl font-semibold text-nail-pink mb-6">What You Can Expect:</h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              <ul className="text-gray-300 space-y-3">
+                <li className="flex items-start">
+                  <span className="text-nail-pink mr-2">•</span>
+                  Personalized consultation to understand your vision
+                </li>
+                <li className="flex items-start">
+                  <span className="text-nail-pink mr-2">•</span>
+                  Premium products and sterilized tools for every service
+                </li>
+                <li className="flex items-start">
+                  <span className="text-nail-pink mr-2">•</span>
+                  Relaxing atmosphere with attention to detail
+                </li>
+              </ul>
+              <ul className="text-gray-300 space-y-3">
+                <li className="flex items-start">
+                  <span className="text-nail-pink mr-2">•</span>
+                  Aftercare advice to maintain your beautiful nails
+                </li>
+                <li className="flex items-start">
+                  <span className="text-nail-pink mr-2">•</span>
+                  Flexible scheduling to fit your lifestyle
+                </li>
+                <li className="flex items-start">
+                  <span className="text-nail-pink mr-2">•</span>
+                  10% discount for first-time clients
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -419,109 +450,6 @@ const HomePage: React.FC = () => {
           <div className="mt-8 text-center text-gray-400">
             <p>Need help? Call me at <span className="text-nail-pink">(123) 456-7890</span></p>
             <p className="mt-2">I'll send you a confirmation email with all the details</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Detailed Services Section */}
-      <section id="services" className="py-20 px-4 bg-black">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              My Premium <span className="text-nail-pink">Nail Services</span>
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              I offer luxury nail treatments designed to enhance your natural beauty and boost your confidence. 
-              Each service is carefully crafted with premium products and personalized attention.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {detailedServices.map((service, index) => (
-              <div
-                key={index}
-                className="group relative bg-gradient-to-br from-black/80 to-nail-black/60 border border-gray-800/50 rounded-2xl p-8 hover:border-nail-pink/50 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl hover:shadow-nail-pink/10"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-nail-pink/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
-                
-                <div className="relative z-10">
-                  <div className="w-16 h-16 bg-nail-pink/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-nail-pink/20 transition-colors duration-300">
-                    {service.icon}
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-nail-pink transition-colors duration-300">
-                    {service.name}
-                  </h3>
-                  
-                  <p className="text-gray-300 leading-relaxed mb-6">
-                    {service.description}
-                  </p>
-                  
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-800/50">
-                    <div className="text-nail-pink font-bold text-lg">
-                      {service.price}
-                    </div>
-                    <div className="text-gray-400 text-sm">
-                      {service.duration}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="bg-gradient-to-r from-nail-pink to-pink-600 rounded-2xl p-8 text-center mb-12">
-            <h3 className="text-3xl font-bold text-white mb-4">
-              Ready to Experience Luxury?
-            </h3>
-            <p className="text-white/90 mb-8 text-lg">
-              Book your appointment today and let me create the perfect nails for you
-            </p>
-            <a 
-              href="#booking"
-              className="bg-white text-nail-pink hover:bg-gray-100 font-bold py-4 px-8 rounded-lg transition-all duration-300 inline-flex items-center text-lg shadow-lg"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector('#booking')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              Book My Appointment
-              <ChevronRight className="ml-2" size={24} />
-            </a>
-          </div>
-
-          <div className="bg-black/50 border border-gray-800 rounded-2xl p-8">
-            <h3 className="text-2xl font-semibold text-nail-pink mb-6">What You Can Expect:</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <ul className="text-gray-300 space-y-3">
-                <li className="flex items-start">
-                  <span className="text-nail-pink mr-2">•</span>
-                  Personalized consultation to understand your vision
-                </li>
-                <li className="flex items-start">
-                  <span className="text-nail-pink mr-2">•</span>
-                  Premium products and sterilized tools for every service
-                </li>
-                <li className="flex items-start">
-                  <span className="text-nail-pink mr-2">•</span>
-                  Relaxing atmosphere with attention to detail
-                </li>
-              </ul>
-              <ul className="text-gray-300 space-y-3">
-                <li className="flex items-start">
-                  <span className="text-nail-pink mr-2">•</span>
-                  Aftercare advice to maintain your beautiful nails
-                </li>
-                <li className="flex items-start">
-                  <span className="text-nail-pink mr-2">•</span>
-                  Flexible scheduling to fit your lifestyle
-                </li>
-                <li className="flex items-start">
-                  <span className="text-nail-pink mr-2">•</span>
-                  10% discount for first-time clients
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
       </section>
