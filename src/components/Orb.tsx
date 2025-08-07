@@ -97,9 +97,9 @@ const frag = /* glsl */ `
       return vec4(colorIn.rgb / (a + 1e-5), a);
     }
 
-    // Nail salon themed colors - pink circle with black backdrop
-    const vec3 baseColor1 = vec3(1.0, 0.4118, 0.7059); // Bright pink #FF69B4 - main circle
-    const vec3 baseColor2 = vec3(0.9608, 0.6627, 0.8314); // Light pink - highlights
+    // Nail salon themed colors - soft pink circle with black backdrop
+    const vec3 baseColor1 = vec3(0.9725, 0.7333, 0.8157); // Soft pink #f8bbd0 - main circle
+    const vec3 baseColor2 = vec3(0.9882, 0.8353, 0.8824); // Lighter pink #fcd5e1 - highlights
     const vec3 baseColor3 = vec3(0.0, 0.0, 0.0); // Pure black backdrop
     const float innerRadius = 0.45;
     const float noiseScale = 0.6;

@@ -170,75 +170,142 @@ const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-black via-nail-black to-black">
-        {/* Animated Orb Background */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-[120vh] h-[120vh] max-w-[120vw] max-h-[120vw]">
-            <Orb hue={320} hoverIntensity={0.4} />
-          </div>
+      <section id="home" className="relative min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden">
+        {/* Animated Grid Background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(248,187,208,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(248,187,208,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-nail-pink/5 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-nail-pink/3 rounded-full blur-2xl animate-pulse delay-1000"></div>
         </div>
-        
-        {/* Content positioned over the orb */}
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-8 animate-fade-in drop-shadow-2xl leading-tight">
-            <span className="block mb-4">
-              <span className="text-white">Experience </span>
-              <RotatingText
-                texts={amazingSynonyms}
-                rotationInterval={2500}
-                mainClassName="inline-block bg-gradient-to-r from-nail-pink to-pink-500 px-4 py-2 rounded-xl text-white drop-shadow-lg shadow-xl shadow-nail-pink/50 border border-nail-pink/30"
-                elementLevelClassName="text-white font-bold"
-              />
-              <span className="text-white"> Nails</span>
-            </span>
-            <span className="block text-white drop-shadow-2xl text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light">Express Yourself</span>
-          </h1>
-          <p className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 animate-slide-up drop-shadow-lg max-w-3xl mx-auto">
-            I create beautiful, healthy nails that reflect your unique style and personality. 
-            From natural enhancements to stunning nail art - let me bring your vision to life.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in">
-            <a 
-              href="#booking"
-              className="group relative overflow-hidden bg-gradient-to-r from-nail-pink via-pink-500 to-nail-pink text-white font-bold py-5 px-10 rounded-2xl transition-all duration-300 hover:scale-110 active:scale-95 inline-flex items-center justify-center transform-gpu shadow-2xl shadow-nail-pink/40 border border-nail-pink/50"
-              style={{
-                boxShadow: '0 0 30px rgba(255, 105, 180, 0.4), 0 0 60px rgba(255, 105, 180, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.1)'
-              }}
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector('#booking')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              <span className="absolute inset-0 bg-gradient-to-r from-pink-400 via-nail-pink to-pink-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></span>
-              <span className="absolute inset-0 bg-white/20 scale-0 group-active:scale-100 transition-transform duration-150 rounded-2xl"></span>
-              <span className="absolute -inset-1 bg-gradient-to-r from-nail-pink to-pink-500 rounded-2xl blur-md opacity-30 group-hover:opacity-70 transition-opacity duration-300"></span>
-              <span className="relative z-10 flex items-center text-lg">
-                Book with Me
-                <ChevronRight className="ml-3 group-hover:translate-x-2 transition-transform duration-300" size={24} />
-              </span>
-            </a>
-            <a 
-              href="#services"
-              className="group relative overflow-hidden bg-black/20 border-2 border-nail-pink text-nail-pink hover:text-white font-bold py-5 px-10 rounded-2xl transition-all duration-300 hover:scale-110 active:scale-95 inline-flex items-center justify-center transform-gpu backdrop-blur-sm"
-              style={{
-                boxShadow: '0 0 20px rgba(255, 105, 180, 0.3), inset 0 0 20px rgba(255, 105, 180, 0.05)'
-              }}
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              <span className="absolute inset-0 bg-gradient-to-r from-nail-pink to-pink-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
-              <span className="absolute inset-0 bg-white/10 scale-0 group-active:scale-100 transition-transform duration-150 rounded-2xl"></span>
-              <span className="absolute -inset-1 bg-gradient-to-r from-nail-pink to-pink-500 rounded-2xl blur-md opacity-0 group-hover:opacity-50 transition-opacity duration-300"></span>
-              <span className="relative z-10 text-lg">View My Services</span>
-            </a>
+
+        {/* Floating Orb */}
+        <div className="absolute top-20 right-20 w-64 h-64 opacity-60">
+          <Orb hue={330} hoverIntensity={0.3} />
+        </div>
+
+        <div className="relative z-10 flex items-center min-h-screen px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto w-full">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              
+              {/* Left Column - Main Content */}
+              <div className="space-y-8">
+                {/* Badge */}
+                <div className="inline-flex items-center px-4 py-2 bg-nail-pink/10 border border-nail-pink/20 rounded-full text-nail-pink text-sm font-medium backdrop-blur-sm">
+                  <Sparkles className="w-4 h-4 mr-2" />
+                  Premium Nail Artistry
+                </div>
+
+                {/* Main Heading */}
+                <div className="space-y-6">
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
+                    <span className="block mb-2">Experience</span>
+                    <span className="block">
+                      <RotatingText
+                        texts={amazingSynonyms}
+                        rotationInterval={2500}
+                        mainClassName="inline-block bg-gradient-to-r from-nail-pink via-nail-pink-dark to-nail-pink-light px-6 py-3 rounded-2xl text-black font-bold shadow-2xl shadow-nail-pink/30 border border-nail-pink/40 mr-4"
+                        elementLevelClassName="text-black font-bold"
+                      />
+                      <span className="text-white">Nails</span>
+                    </span>
+                    <span className="block mt-4 text-2xl sm:text-3xl lg:text-4xl font-light text-gray-300 leading-relaxed">
+                      Express Yourself
+                    </span>
+                  </h1>
+                </div>
+
+                {/* Description */}
+                <p className="text-lg lg:text-xl text-gray-400 leading-relaxed max-w-2xl">
+                  Transform your style with premium nail artistry. From minimalist elegance to bold creative designs, 
+                  I bring your vision to life with precision and passion.
+                </p>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a 
+                    href="#booking"
+                    className="group relative overflow-hidden bg-gradient-to-r from-nail-pink to-nail-pink-dark text-black font-bold py-4 px-8 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 inline-flex items-center justify-center shadow-2xl shadow-nail-pink/25 hover:shadow-nail-pink/40 border border-nail-pink/20"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document.querySelector('#booking')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                  >
+                    <span className="absolute inset-0 bg-gradient-to-r from-nail-pink-light to-nail-pink opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <span className="relative z-10 flex items-center">
+                      Book Appointment
+                      <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
+                    </span>
+                  </a>
+                  
+                  <a 
+                    href="#services"
+                    className="group relative overflow-hidden bg-transparent border-2 border-nail-pink/30 text-white hover:text-black font-bold py-4 px-8 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 inline-flex items-center justify-center backdrop-blur-sm hover:bg-nail-pink/10"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                  >
+                    <span className="absolute inset-0 bg-gradient-to-r from-nail-pink to-nail-pink-dark scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                    <span className="relative z-10">Explore Services</span>
+                  </a>
+                </div>
+
+                {/* Stats */}
+                <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-800">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-nail-pink">500+</div>
+                    <div className="text-sm text-gray-400">Happy Clients</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-nail-pink">5+</div>
+                    <div className="text-sm text-gray-400">Years Experience</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-nail-pink">100%</div>
+                    <div className="text-sm text-gray-400">Satisfaction</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column - Visual Elements */}
+              <div className="relative lg:flex hidden justify-center items-center">
+                <div className="relative w-96 h-96">
+                  {/* Main Orb */}
+                  <div className="absolute inset-0 scale-150">
+                    <Orb hue={330} hoverIntensity={0.4} />
+                  </div>
+                  
+                  {/* Floating Cards */}
+                  <div className="absolute -top-8 -left-8 bg-black/40 backdrop-blur-md border border-nail-pink/20 rounded-xl p-4 animate-pulse">
+                    <div className="flex items-center space-x-2">
+                      <Heart className="w-5 h-5 text-nail-pink" />
+                      <span className="text-sm text-white">BIAB Natural</span>
+                    </div>
+                  </div>
+                  
+                  <div className="absolute -bottom-8 -right-8 bg-black/40 backdrop-blur-md border border-nail-pink/20 rounded-xl p-4 animate-pulse delay-500">
+                    <div className="flex items-center space-x-2">
+                      <Sparkles className="w-5 h-5 text-nail-pink" />
+                      <span className="text-sm text-white">Gel-X Extensions</span>
+                    </div>
+                  </div>
+                  
+                  <div className="absolute -top-4 -right-16 bg-black/40 backdrop-blur-md border border-nail-pink/20 rounded-xl p-4 animate-pulse delay-1000">
+                    <div className="flex items-center space-x-2">
+                      <Palette className="w-5 h-5 text-nail-pink" />
+                      <span className="text-sm text-white">Custom Art</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-nail-pink rounded-full flex justify-center shadow-lg shadow-nail-pink/30">
-            <div className="w-1 h-3 bg-nail-pink rounded-full mt-2 shadow-sm shadow-nail-pink/50"></div>
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-nail-pink/50 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-nail-pink rounded-full mt-2"></div>
           </div>
         </div>
       </section>
