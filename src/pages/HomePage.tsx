@@ -3,6 +3,7 @@ import { ChevronRight, Sparkles, Heart, Shield, Droplet, RefreshCw, Palette, Use
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import RotatingText from '../components/RotatingText';
+import Orb from '../components/Orb';
 
 const HomePage: React.FC = () => {
   // Booking state
@@ -169,54 +170,65 @@ const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-nail-black to-black opacity-90"></div>
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-4.0.3')] bg-cover bg-center"></div>
+      <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-black via-nail-black to-black">
+        {/* Animated Orb Background */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-[120vh] h-[120vh] max-w-[120vw] max-h-[120vw]">
+            <Orb hue={320} hoverIntensity={0.4} />
+          </div>
+        </div>
         
+        {/* Content positioned over the orb */}
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in drop-shadow-2xl">
             Experience{' '}
             <RotatingText
               texts={amazingSynonyms}
               rotationInterval={2500}
-              mainClassName="text-nail-pink inline-block"
+              mainClassName="text-nail-pink inline-block drop-shadow-lg"
               elementLevelClassName="text-nail-pink"
             />{' '}
             Nails,
-            <span className="block text-white mt-2">Express Yourself</span>
+            <span className="block text-white mt-2 drop-shadow-2xl">Express Yourself</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 animate-slide-up">
+          <p className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 animate-slide-up drop-shadow-lg max-w-3xl mx-auto">
             I create beautiful, healthy nails that reflect your unique style and personality. 
             From natural enhancements to stunning nail art - let me bring your vision to life.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
             <a 
               href="#booking"
-              className="btn-primary inline-flex items-center justify-center"
+              className="group relative overflow-hidden bg-gradient-to-r from-nail-pink to-pink-500 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-nail-pink/50 active:scale-95 inline-flex items-center justify-center transform-gpu"
               onClick={(e) => {
                 e.preventDefault();
                 document.querySelector('#booking')?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
-              Book with Me
-              <ChevronRight className="ml-2" size={20} />
+              <span className="absolute inset-0 bg-gradient-to-r from-pink-400 to-nail-pink opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              <span className="absolute inset-0 bg-white/20 scale-0 group-active:scale-100 transition-transform duration-150 rounded-xl"></span>
+              <span className="relative z-10 flex items-center">
+                Book with Me
+                <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
+              </span>
             </a>
             <a 
               href="#services"
-              className="bg-transparent border-2 border-nail-pink text-nail-pink hover:bg-nail-pink hover:text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 inline-flex items-center justify-center"
+              className="group relative overflow-hidden bg-transparent border-2 border-nail-pink text-nail-pink hover:text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-nail-pink/30 active:scale-95 inline-flex items-center justify-center transform-gpu"
               onClick={(e) => {
                 e.preventDefault();
                 document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
-              View My Services
+              <span className="absolute inset-0 bg-gradient-to-r from-nail-pink to-pink-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+              <span className="absolute inset-0 bg-white/10 scale-0 group-active:scale-100 transition-transform duration-150 rounded-xl"></span>
+              <span className="relative z-10">View My Services</span>
             </a>
           </div>
         </div>
 
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-nail-pink rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-nail-pink rounded-full mt-2"></div>
+          <div className="w-6 h-10 border-2 border-nail-pink rounded-full flex justify-center shadow-lg shadow-nail-pink/30">
+            <div className="w-1 h-3 bg-nail-pink rounded-full mt-2 shadow-sm shadow-nail-pink/50"></div>
           </div>
         </div>
       </section>

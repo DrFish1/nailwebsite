@@ -44,10 +44,10 @@ const Navbar: React.FC = () => {
                 <a
                   key={link.path}
                   href={link.path}
-                  className={`text-gray-300 hover:text-nail-pink transition-colors duration-200 font-medium ${
+                  className={`font-medium transition-all duration-300 ${
                     link.label === 'Book Now' 
-                      ? 'bg-nail-pink text-white px-4 py-2 rounded-lg hover:bg-nail-pink-light hover:scale-105 transform transition-all' 
-                      : ''
+                      ? 'group relative overflow-hidden bg-gradient-to-r from-nail-pink to-pink-500 text-white px-6 py-2 rounded-lg hover:scale-105 hover:shadow-xl hover:shadow-nail-pink/40 active:scale-95 transform-gpu' 
+                      : 'text-gray-300 hover:text-nail-pink transition-colors duration-200'
                   }`}
                   onClick={(e) => {
                     e.preventDefault();
@@ -55,7 +55,15 @@ const Navbar: React.FC = () => {
                     element?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
-                  {link.label}
+                  {link.label === 'Book Now' ? (
+                    <>
+                      <span className="absolute inset-0 bg-gradient-to-r from-pink-400 to-nail-pink opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></span>
+                      <span className="absolute inset-0 bg-white/20 scale-0 group-active:scale-100 transition-transform duration-150 rounded-lg"></span>
+                      <span className="relative z-10">{link.label}</span>
+                    </>
+                  ) : (
+                    link.label
+                  )}
                 </a>
               ))}
             </div>
@@ -95,13 +103,21 @@ const Navbar: React.FC = () => {
                   const element = document.querySelector(link.path);
                   element?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className={`text-gray-300 hover:text-nail-pink hover:bg-gray-900 block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 ${
                   link.label === 'Book Now' 
-                    ? 'bg-nail-pink text-white hover:bg-nail-pink-light' 
-                    : ''
+                    ? 'group relative overflow-hidden bg-gradient-to-r from-nail-pink to-pink-500 text-white hover:scale-105 hover:shadow-lg hover:shadow-nail-pink/40 active:scale-95 transform-gpu' 
+                    : 'text-gray-300 hover:text-nail-pink hover:bg-gray-900 transition-colors'
                 }`}
               >
-                {link.label}
+                {link.label === 'Book Now' ? (
+                  <>
+                    <span className="absolute inset-0 bg-gradient-to-r from-pink-400 to-nail-pink opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-md"></span>
+                    <span className="absolute inset-0 bg-white/20 scale-0 group-active:scale-100 transition-transform duration-150 rounded-md"></span>
+                    <span className="relative z-10">{link.label}</span>
+                  </>
+                ) : (
+                  link.label
+                )}
               </a>
             ))}
             <a
