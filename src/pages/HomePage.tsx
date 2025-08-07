@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ChevronRight, Sparkles, Heart, Shield, Droplet, RefreshCw, Palette, User, Phone, Mail, Check, MapPin, Clock, Send, Facebook, Instagram, Twitter } from 'lucide-react';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
+import RotatingText from '../components/RotatingText';
 
 const HomePage: React.FC = () => {
   // Booking state
@@ -16,6 +17,18 @@ const HomePage: React.FC = () => {
     phone: '',
     notes: '',
   });
+
+  // Rotating text synonyms for "amazing"
+  const amazingSynonyms = [
+    "Amazing",
+    "Stunning",
+    "Beautiful",
+    "Gorgeous",
+    "Incredible",
+    "Spectacular",
+    "Fabulous",
+    "Breathtaking"
+  ];
 
   const services = {
     'Gel-X Extensions': [
@@ -162,8 +175,15 @@ const HomePage: React.FC = () => {
         
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">
-            Your Nails,
-            <span className="block text-nail-pink mt-2">My Passion</span>
+            Experience{' '}
+            <RotatingText
+              texts={amazingSynonyms}
+              rotationInterval={2500}
+              mainClassName="text-nail-pink inline-block"
+              elementLevelClassName="text-nail-pink"
+            />{' '}
+            Nails,
+            <span className="block text-white mt-2">Express Yourself</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-8 animate-slide-up">
             I create beautiful, healthy nails that reflect your unique style and personality. 

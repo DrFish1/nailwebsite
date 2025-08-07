@@ -21,14 +21,20 @@ const Navbar: React.FC = () => {
           <div className="flex items-center">
             <a 
               href="#home"
-              className="flex items-center"
+              className="flex items-center group"
               onClick={(e) => {
                 e.preventDefault();
                 document.querySelector('#home')?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
-              <span className="text-2xl font-bold text-nail-pink">Luxe</span>
-              <span className="text-2xl font-light text-white ml-1">Nails</span>
+              <div className="relative">
+                <div className="absolute inset-0 bg-nail-pink rounded-full blur-lg opacity-50 group-hover:opacity-75 transition-opacity duration-300 scale-110"></div>
+                <img 
+                  src="/logo.png" 
+                  alt="Nail Salon Logo" 
+                  className="relative z-10 h-12 w-auto transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
             </a>
           </div>
 
