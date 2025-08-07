@@ -181,15 +181,17 @@ const HomePage: React.FC = () => {
         {/* Content positioned over the orb */}
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in drop-shadow-2xl">
-            Experience{' '}
-            <RotatingText
-              texts={amazingSynonyms}
-              rotationInterval={2500}
-              mainClassName="text-nail-pink inline-block drop-shadow-lg"
-              elementLevelClassName="text-nail-pink"
-            />{' '}
-            Nails,
-            <span className="block text-white mt-2 drop-shadow-2xl">Express Yourself</span>
+            <span className="block mb-2">
+              Experience{' '}
+              <RotatingText
+                texts={amazingSynonyms}
+                rotationInterval={2500}
+                mainClassName="inline-block bg-nail-pink px-3 py-1 rounded-lg text-white drop-shadow-lg"
+                elementLevelClassName="text-white"
+              />{' '}
+              Nails
+            </span>
+            <span className="block text-white drop-shadow-2xl">Express Yourself</span>
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 animate-slide-up drop-shadow-lg max-w-3xl mx-auto">
             I create beautiful, healthy nails that reflect your unique style and personality. 

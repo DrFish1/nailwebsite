@@ -97,12 +97,12 @@ const frag = /* glsl */ `
       return vec4(colorIn.rgb / (a + 1e-5), a);
     }
 
-    // Nail salon themed colors - pink and black palette
-    const vec3 baseColor1 = vec3(1.0, 0.4118, 0.7059); // Bright pink #FF69B4
-    const vec3 baseColor2 = vec3(0.9608, 0.6627, 0.8314); // Light pink
-    const vec3 baseColor3 = vec3(0.1098, 0.1451, 0.1490); // Nail black #1C2526
-    const float innerRadius = 0.55;
-    const float noiseScale = 0.75;
+    // Nail salon themed colors - pink circle with black backdrop
+    const vec3 baseColor1 = vec3(1.0, 0.4118, 0.7059); // Bright pink #FF69B4 - main circle
+    const vec3 baseColor2 = vec3(0.9608, 0.6627, 0.8314); // Light pink - highlights
+    const vec3 baseColor3 = vec3(0.0, 0.0, 0.0); // Pure black backdrop
+    const float innerRadius = 0.45;
+    const float noiseScale = 0.6;
 
     float light1(float intensity, float attenuation, float dist) {
       return intensity / (1.0 + dist * attenuation);
@@ -112,33 +112,36 @@ const frag = /* glsl */ `
     }
 
     vec4 draw(vec2 uv) {
-      vec3 color1 = adjustHue(baseColor1, hue);
-      vec3 color2 = adjustHue(baseColor2, hue);
-      vec3 color3 = adjustHue(baseColor3, hue);
+      vec3 color1 = adjustHue(baseColor1, hue); // Pink circle
+      vec3 color2 = adjustHue(baseColor2, hue); // Pink highlights
+      vec3 color3 = adjustHue(baseColor3, hue); // Black backdrop
       
       float ang = atan(uv.y, uv.x);
       float len = length(uv);
-      float invLen = len > 0.0 ? 1.0 / len : 0.0;
       
-      float n0 = snoise3(vec3(uv * noiseScale, iTime * 0.4)) * 0.5 + 0.5;
-      float r0 = mix(mix(innerRadius, 0.95, 0.4), mix(innerRadius, 0.95, 0.7), n0);
-      float d0 = distance(uv, (r0 * invLen) * uv);
-      float v0 = light1(1.2, 8.0, d0);
-      v0 *= smoothstep(r0 * 1.08, r0, len);
-      float cl = cos(ang + iTime * 1.5) * 0.5 + 0.5;
+      // Create a smooth circular gradient
+      float circleRadius = 0.7;
+      float circleMask = 1.0 - smoothstep(circleRadius - 0.3, circleRadius, len);
       
-      float a = iTime * -0.8;
-      vec2 pos = vec2(cos(a), sin(a)) * r0;
-      float d = distance(uv, pos);
-      float v1 = light2(1.8, 4.0, d);
-      v1 *= light1(1.0, 40.0, d0);
+      // Add subtle noise for organic feel
+      float n0 = snoise3(vec3(uv * noiseScale, iTime * 0.3)) * 0.3 + 0.7;
       
-      float v2 = smoothstep(1.0, mix(innerRadius, 0.95, n0 * 0.6), len);
-      float v3 = smoothstep(innerRadius * 0.8, mix(innerRadius, 0.95, 0.6), len);
+      // Create pink circle with soft edges
+      float pinkCircle = smoothstep(0.8, 0.4, len) * n0;
       
-      vec3 col = mix(color1, color2, cl);
-      col = mix(color3, col, v0);
-      col = (col + v1 * 1.5) * v2 * v3;
+      // Add rotating highlight
+      float highlight = cos(ang + iTime * 1.0) * 0.5 + 0.5;
+      highlight *= smoothstep(0.9, 0.3, len) * 0.4;
+      
+      // Mix colors: start with black, add pink circle, add highlights
+      vec3 col = color3; // Start with black backdrop
+      col = mix(col, color1, pinkCircle); // Add pink circle
+      col = mix(col, color2, highlight); // Add pink highlights
+      
+      // Create soft fade to black at edges
+      float fade = smoothstep(1.2, 0.0, len);
+      col *= fade;
+      
       col = clamp(col, 0.0, 1.0);
       
       return extractAlpha(col);
