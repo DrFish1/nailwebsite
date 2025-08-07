@@ -1,46 +1,182 @@
-# Getting Started with Create React App
+# Luxe Nails - Modern Nail Salon Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive website for a nail salon business with a black and pink theme, featuring an intuitive booking system and seamless navigation.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+✨ **Modern Design**
+- Black-based theme with pink accents
+- Clean and minimalist layout
+- Smooth animations and transitions
+- Fully responsive design
 
-### `npm start`
+📅 **Easy Booking System**
+- Step-by-step booking interface
+- Service selection with pricing
+- Technician selection
+- Date and time picker
+- Customer information form
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+📸 **Interactive Gallery**
+- Filterable nail art portfolio
+- Lightbox image viewer
+- Category-based organization
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+📱 **Mobile-First Design**
+- Responsive navigation with mobile menu
+- Touch-friendly interface
+- Optimized for all screen sizes
 
-### `npm test`
+## Technology Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React** with TypeScript
+- **Tailwind CSS** for styling
+- **React Router** for navigation
+- **Lucide React** for icons
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js (v14 or higher)
+- npm or yarn
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. Navigate to the project directory:
+```bash
+cd nail-salon
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+2. Install dependencies:
+```bash
+npm install
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Start the development server:
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The application will open in your browser at `http://localhost:3000`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Build for Production
 
-## Learn More
+To create a production build:
+```bash
+npm run build
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Project Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+nail-salon/
+├── src/
+│   ├── components/
+│   │   ├── Navbar.tsx       # Navigation header
+│   │   ├── Footer.tsx       # Footer component
+│   │   ├── Testimonials.tsx # Customer testimonials
+│   │   └── FAQ.tsx          # Frequently asked questions
+│   ├── pages/
+│   │   ├── HomePage.tsx     # Landing page
+│   │   ├── ServicesPage.tsx # Services and pricing
+│   │   ├── BookingPage.tsx  # Booking interface
+│   │   ├── GalleryPage.tsx  # Portfolio gallery
+│   │   ├── AboutPage.tsx    # About us page
+│   │   └── ContactPage.tsx  # Contact information
+│   ├── App.tsx              # Main app component
+│   └── index.css            # Global styles
+├── public/
+└── package.json
+```
+
+## Key Features by Page
+
+### Home Page
+- Hero section with call-to-action
+- Feature highlights
+- Popular services preview
+- Gallery preview
+- Testimonials section
+- FAQ section
+
+### Services Page
+- Comprehensive service list
+- Organized by categories
+- Pricing and duration information
+- Service descriptions
+
+### Booking Page
+- 4-step booking process
+- Progress indicator
+- Real-time form validation
+- Booking summary
+
+### Gallery Page
+- Category filters
+- Grid layout
+- Lightbox viewer
+- Hover effects
+
+### About Page
+- Company story
+- Team members
+- Core values
+- Statistics
+
+### Contact Page
+- Contact form
+- Business information
+- Business hours
+- Social media links
+- Embedded map
+
+## Customization
+
+### Colors
+Edit the custom colors in `tailwind.config.js`:
+```javascript
+colors: {
+  'nail-black': '#1C2526',
+  'nail-pink': '#FF69B4',
+  'nail-pink-light': '#F5A9B8',
+}
+```
+
+### Business Information
+Update contact details, hours, and location in:
+- `components/Footer.tsx`
+- `pages/ContactPage.tsx`
+- `components/Navbar.tsx`
+
+### Services and Pricing
+Modify services in `pages/ServicesPage.tsx`
+
+## Deployment
+
+### Vercel
+```bash
+npm run build
+vercel --prod
+```
+
+### Netlify
+```bash
+npm run build
+netlify deploy --prod --dir=build
+```
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## License
+
+This project is designed for a nail salon business. All rights reserved.
+
+## Support
+
+For support or questions, contact: info@luxenails.com
