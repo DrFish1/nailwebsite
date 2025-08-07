@@ -4,7 +4,7 @@ import { User, Phone, Mail, Check } from 'lucide-react';
 const BookingPage: React.FC = () => {
   const [step, setStep] = useState(1);
   const [selectedService, setSelectedService] = useState('');
-  const [selectedTechnician, setSelectedTechnician] = useState('');
+  const [selectedTechnician, setSelectedTechnician] = useState('Leanna');
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
   const [customerInfo, setCustomerInfo] = useState({
@@ -15,22 +15,16 @@ const BookingPage: React.FC = () => {
   });
 
   const services = [
-    'Classic Manicure - $30',
-    'Gel Manicure - $45',
-    'Spa Manicure - $55',
-    'Classic Pedicure - $40',
-    'Gel Pedicure - $55',
-    'Spa Pedicure - $70',
-    'Acrylic Full Set - $65',
-    'Gel Extensions - $75',
-    'Nail Art Design - $15+',
+    'Gel-X Extensions - From $75',
+    'BIAB Natural Nails - From $55',
+    'Infills & Maintenance - From $45',
+    'Luxury Pedicure - From $65',
+    'Safe Removals - From $25',
+    'Custom Art & Extras - From $15',
   ];
 
   const technicians = [
-    { name: 'Sarah Kim', specialty: 'Nail Art & Design' },
-    { name: 'Jessica Chen', specialty: 'Gel & Acrylics' },
-    { name: 'Maria Lopez', specialty: 'Spa Treatments' },
-    { name: 'Any Available', specialty: 'First Available' },
+    { name: 'Leanna', specialty: 'All Nail Services & Artistry' },
   ];
 
   const availableTimes = [
@@ -42,7 +36,7 @@ const BookingPage: React.FC = () => {
   ];
 
   const handleNextStep = () => {
-    if (step < 4) setStep(step + 1);
+    if (step < 3) setStep(step + 1);
   };
 
   const handlePrevStep = () => {
@@ -56,7 +50,7 @@ const BookingPage: React.FC = () => {
 
   const renderProgressBar = () => (
     <div className="flex items-center justify-center mb-8">
-      {[1, 2, 3, 4].map((i) => (
+      {[1, 2, 3].map((i) => (
         <React.Fragment key={i}>
           <div
             className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all ${
@@ -67,7 +61,7 @@ const BookingPage: React.FC = () => {
           >
             {step > i ? <Check size={20} /> : i}
           </div>
-          {i < 4 && (
+          {i < 3 && (
             <div
               className={`w-16 md:w-24 h-1 transition-all ${
                 step > i ? 'bg-nail-pink' : 'bg-gray-800'
@@ -84,8 +78,9 @@ const BookingPage: React.FC = () => {
       case 1:
         return (
           <div>
-            <h2 className="text-2xl font-bold text-white mb-6">Select Service</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <h2 className="text-2xl font-bold text-white mb-6">Select Your Service</h2>
+            <p className="text-gray-300 mb-6">Choose the service you'd like me to provide:</p>
+            <div className="grid grid-cols-1 gap-4">
               {services.map((service) => (
                 <button
                   key={service}
@@ -106,30 +101,8 @@ const BookingPage: React.FC = () => {
       case 2:
         return (
           <div>
-            <h2 className="text-2xl font-bold text-white mb-6">Choose Technician</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {technicians.map((tech) => (
-                <button
-                  key={tech.name}
-                  onClick={() => setSelectedTechnician(tech.name)}
-                  className={`p-4 rounded-lg border-2 text-left transition-all ${
-                    selectedTechnician === tech.name
-                      ? 'border-nail-pink bg-nail-pink/10'
-                      : 'border-gray-800 hover:border-nail-pink/50'
-                  }`}
-                >
-                  <div className="text-white font-semibold">{tech.name}</div>
-                  <div className="text-gray-400 text-sm">{tech.specialty}</div>
-                </button>
-              ))}
-            </div>
-          </div>
-        );
-
-      case 3:
-        return (
-          <div>
             <h2 className="text-2xl font-bold text-white mb-6">Select Date & Time</h2>
+            <p className="text-gray-300 mb-6">When would you like to schedule your appointment?</p>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-nail-pink mb-2">Select Date</label>
@@ -163,7 +136,7 @@ const BookingPage: React.FC = () => {
           </div>
         );
 
-      case 4:
+      case 3:
         return (
           <div>
             <h2 className="text-2xl font-bold text-white mb-6">Your Information</h2>
@@ -230,10 +203,10 @@ const BookingPage: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Book Your <span className="text-nail-pink">Appointment</span>
+            Book Your Appointment <span className="text-nail-pink">with Me</span>
           </h1>
           <p className="text-xl text-gray-300">
-            Easy online booking in just a few steps
+            Let's schedule your personalized nail experience in just a few steps
           </p>
         </div>
 
@@ -242,12 +215,12 @@ const BookingPage: React.FC = () => {
         <div className="bg-black/50 border border-gray-800 rounded-lg p-6 md:p-8">
           {renderStepContent()}
 
-          {step === 4 && (
+          {step === 3 && (
             <div className="mt-6 p-4 bg-nail-pink/10 border border-nail-pink/30 rounded-lg">
-              <h3 className="text-nail-pink font-semibold mb-2">Booking Summary</h3>
+              <h3 className="text-nail-pink font-semibold mb-2">Appointment Summary</h3>
               <div className="text-gray-300 space-y-1">
                 <p><span className="text-gray-400">Service:</span> {selectedService}</p>
-                <p><span className="text-gray-400">Technician:</span> {selectedTechnician}</p>
+                <p><span className="text-gray-400">With:</span> Leanna</p>
                 <p><span className="text-gray-400">Date:</span> {selectedDate}</p>
                 <p><span className="text-gray-400">Time:</span> {selectedTime}</p>
               </div>
@@ -263,18 +236,16 @@ const BookingPage: React.FC = () => {
                 Previous
               </button>
             )}
-            {step < 4 ? (
+            {step < 3 ? (
               <button
                 onClick={handleNextStep}
                 disabled={
                   (step === 1 && !selectedService) ||
-                  (step === 2 && !selectedTechnician) ||
-                  (step === 3 && (!selectedDate || !selectedTime))
+                  (step === 2 && (!selectedDate || !selectedTime))
                 }
                 className={`px-6 py-3 rounded-lg font-semibold transition-all ml-auto ${
                   ((step === 1 && !selectedService) ||
-                   (step === 2 && !selectedTechnician) ||
-                   (step === 3 && (!selectedDate || !selectedTime)))
+                   (step === 2 && (!selectedDate || !selectedTime)))
                     ? 'bg-gray-800 text-gray-500 cursor-not-allowed'
                     : 'bg-nail-pink text-white hover:bg-nail-pink-light'
                 }`}
@@ -286,15 +257,15 @@ const BookingPage: React.FC = () => {
                 onClick={handleSubmit}
                 className="px-6 py-3 bg-nail-pink text-white rounded-lg font-semibold hover:bg-nail-pink-light transition-all ml-auto"
               >
-                Confirm Booking
+                Confirm My Appointment
               </button>
             )}
           </div>
         </div>
 
         <div className="mt-8 text-center text-gray-400">
-          <p>Need help? Call us at <span className="text-nail-pink">(123) 456-7890</span></p>
-          <p className="mt-2">We'll send you a confirmation email with all the details</p>
+          <p>Need help? Call me at <span className="text-nail-pink">(123) 456-7890</span></p>
+          <p className="mt-2">I'll send you a confirmation email with all the details</p>
         </div>
       </div>
     </div>

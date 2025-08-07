@@ -1,120 +1,145 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Clock, ChevronRight } from 'lucide-react';
+import { Sparkles, ChevronRight, Droplet, RefreshCw, Heart, Shield, Palette } from 'lucide-react';
 
 const ServicesPage: React.FC = () => {
-  const serviceCategories = [
+  const services = [
     {
-      category: 'Manicures',
-      services: [
-        { name: 'Classic Manicure', price: '$30', duration: '30 min', description: 'Basic nail shaping, cuticle care, and polish application' },
-        { name: 'Gel Manicure', price: '$45', duration: '45 min', description: 'Long-lasting gel polish with UV curing for 2-3 weeks wear' },
-        { name: 'French Manicure', price: '$40', duration: '40 min', description: 'Elegant white tips with nude or pink base' },
-        { name: 'Spa Manicure', price: '$55', duration: '60 min', description: 'Includes exfoliation, mask, massage, and paraffin treatment' },
-      ],
+      name: 'Gel-X Extensions',
+      icon: <Sparkles className="text-nail-pink" size={32} />,
+      description: 'Lightweight, soak-off gel extensions that provide a natural-looking length and strength. Perfect for everyday elegance with a sophisticated finish that lasts weeks.',
+      price: 'From $75',
+      duration: '90 min'
     },
     {
-      category: 'Pedicures',
-      services: [
-        { name: 'Classic Pedicure', price: '$40', duration: '45 min', description: 'Foot soak, nail care, callus removal, and polish' },
-        { name: 'Gel Pedicure', price: '$55', duration: '60 min', description: 'Long-lasting gel polish for toes' },
-        { name: 'Spa Pedicure', price: '$70', duration: '75 min', description: 'Luxurious treatment with scrub, mask, and extended massage' },
-        { name: 'Medical Pedicure', price: '$85', duration: '90 min', description: 'Specialized care for problematic feet and nails' },
-      ],
+      name: 'BIAB Natural Nails',
+      icon: <Heart className="text-nail-pink" size={32} />,
+      description: 'Builder in a bottle gel treatment that strengthens and adds subtle length to your natural nails. Healthy, beautiful nails that grow stronger with each application.',
+      price: 'From $55',
+      duration: '60 min'
     },
     {
-      category: 'Nail Extensions',
-      services: [
-        { name: 'Acrylic Full Set', price: '$65', duration: '90 min', description: 'Durable acrylic extensions with your choice of length and shape' },
-        { name: 'Acrylic Fill', price: '$40', duration: '60 min', description: 'Maintenance fill for existing acrylic nails' },
-        { name: 'Gel Extensions', price: '$75', duration: '90 min', description: 'Lightweight gel extensions for a natural look' },
-        { name: 'Dip Powder Full Set', price: '$60', duration: '75 min', description: 'Strong, lightweight alternative to acrylics' },
-      ],
+      name: 'Infills & Maintenance',
+      icon: <RefreshCw className="text-nail-pink" size={32} />,
+      description: 'Professional maintenance service to keep your nails looking fresh and beautiful. Fill in growth, reshape, and refresh your polish for continued perfection.',
+      price: 'From $45',
+      duration: '45 min'
     },
     {
-      category: 'Nail Art & Design',
-      services: [
-        { name: 'Simple Nail Art', price: '$15', duration: '30 min', description: 'Basic designs on 2 accent nails' },
-        { name: 'Complex Nail Art', price: '$30+', duration: '45+ min', description: 'Intricate designs, 3D elements, or hand-painted art' },
-        { name: 'Chrome/Mirror Finish', price: '$20', duration: '20 min', description: 'Metallic mirror effect using chrome powder' },
-        { name: 'Ombre/Gradient', price: '$25', duration: '30 min', description: 'Beautiful color transition effect' },
-      ],
+      name: 'Pedicure',
+      icon: <Droplet className="text-nail-pink" size={32} />,
+      description: 'Indulge in a completely relaxing pedicure experience with professional foot care, exfoliation, massage, and beautiful polish application.',
+      price: 'From $65',
+      duration: '75 min'
     },
     {
-      category: 'Additional Services',
-      services: [
-        { name: 'Polish Change', price: '$15', duration: '15 min', description: 'Quick polish change for hands or feet' },
-        { name: 'Nail Repair', price: '$10/nail', duration: '15 min', description: 'Fix broken or damaged nails' },
-        { name: 'Paraffin Treatment', price: '$15', duration: '15 min', description: 'Moisturizing wax treatment for hands or feet' },
-        { name: 'Cuticle Treatment', price: '$20', duration: '20 min', description: 'Intensive cuticle care and conditioning' },
-      ],
+      name: 'Safe Removals',
+      icon: <Shield className="text-nail-pink" size={32} />,
+      description: 'Gentle, professional removal of gel polish or extensions that prioritizes the health of your natural nails. No damage, just healthy nail restoration.',
+      price: 'From $25',
+      duration: '30 min'
+    },
+    {
+      name: 'Custom Art & Extras',
+      icon: <Palette className="text-nail-pink" size={32} />,
+      description: 'Personalized nail art, French tips, chrome effects, glitter, rhinestones, and specialty treatments to make your nails uniquely yours.',
+      price: 'From $15',
+      duration: '30+ min'
     },
   ];
 
   return (
     <div className="min-h-screen bg-nail-black pt-20 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Our <span className="text-nail-pink">Services</span>
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            My Premium <span className="text-nail-pink">Nail Services</span>
           </h1>
-          <p className="text-xl text-gray-300">
-            Professional nail care services tailored to your needs
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            I offer luxury nail treatments designed to enhance your natural beauty and boost your confidence. 
+            Each service is carefully crafted with premium products and personalized attention.
           </p>
         </div>
 
-        {serviceCategories.map((category, categoryIndex) => (
-          <div key={categoryIndex} className="mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-nail-pink mb-6 border-b border-gray-800 pb-2">
-              {category.category}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {category.services.map((service, serviceIndex) => (
-                <div
-                  key={serviceIndex}
-                  className="bg-black/50 border border-gray-800 rounded-lg p-6 hover:border-nail-pink transition-all group"
-                >
-                  <div className="flex justify-between items-start mb-3">
-                    <h3 className="text-xl font-semibold text-white group-hover:text-nail-pink transition-colors">
-                      {service.name}
-                    </h3>
-                    <span className="text-nail-pink text-xl font-bold">
-                      {service.price}
-                    </span>
-                  </div>
-                  <div className="flex items-center text-gray-400 mb-3">
-                    <Clock size={16} className="mr-2" />
-                    <span className="text-sm">{service.duration}</span>
-                  </div>
-                  <p className="text-gray-300">{service.description}</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="group relative bg-gradient-to-br from-black/80 to-nail-black/60 border border-gray-800/50 rounded-2xl p-8 hover:border-nail-pink/50 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl hover:shadow-nail-pink/10"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-nail-pink/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+              
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-nail-pink/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-nail-pink/20 transition-colors duration-300">
+                  {service.icon}
                 </div>
-              ))}
+                
+                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-nail-pink transition-colors duration-300">
+                  {service.name}
+                </h3>
+                
+                <p className="text-gray-300 leading-relaxed mb-6">
+                  {service.description}
+                </p>
+                
+                <div className="flex items-center justify-between pt-4 border-t border-gray-800/50">
+                  <div className="text-nail-pink font-bold text-lg">
+                    {service.price}
+                  </div>
+                  <div className="text-gray-400 text-sm">
+                    {service.duration}
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
 
-        <div className="bg-gradient-to-r from-nail-pink to-pink-600 rounded-lg p-8 text-center mt-12">
-          <h3 className="text-2xl font-bold text-white mb-4">
-            Ready to Book Your Service?
+        <div className="bg-gradient-to-r from-nail-pink to-pink-600 rounded-2xl p-8 text-center mb-12">
+          <h3 className="text-3xl font-bold text-white mb-4">
+            Ready to Experience Luxury?
           </h3>
-          <p className="text-white/90 mb-6">
-            Schedule your appointment online for the best availability
+          <p className="text-white/90 mb-8 text-lg">
+            Book your appointment today and let me create the perfect nails for you
           </p>
-          <Link to="/booking" className="bg-white text-nail-pink hover:bg-gray-100 font-bold py-3 px-6 rounded-lg transition-all duration-300 inline-flex items-center">
-            Book Appointment
-            <ChevronRight className="ml-2" size={20} />
+          <Link to="/booking" className="bg-white text-nail-pink hover:bg-gray-100 font-bold py-4 px-8 rounded-lg transition-all duration-300 inline-flex items-center text-lg shadow-lg">
+            Book My Appointment
+            <ChevronRight className="ml-2" size={24} />
           </Link>
         </div>
 
-        <div className="mt-12 bg-black/50 border border-gray-800 rounded-lg p-6">
-          <h3 className="text-xl font-semibold text-nail-pink mb-4">Service Notes:</h3>
-          <ul className="text-gray-300 space-y-2">
-            <li>• Prices are subject to change based on nail condition and additional requests</li>
-            <li>• All services include basic nail care and shaping</li>
-            <li>• Gel removal is included with new gel application</li>
-            <li>• Package deals available for multiple services</li>
-            <li>• 10% discount for first-time clients</li>
-          </ul>
+        <div className="bg-black/50 border border-gray-800 rounded-2xl p-8">
+          <h3 className="text-2xl font-semibold text-nail-pink mb-6">What You Can Expect:</h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            <ul className="text-gray-300 space-y-3">
+              <li className="flex items-start">
+                <span className="text-nail-pink mr-2">•</span>
+                Personalized consultation to understand your vision
+              </li>
+              <li className="flex items-start">
+                <span className="text-nail-pink mr-2">•</span>
+                Premium products and sterilized tools for every service
+              </li>
+              <li className="flex items-start">
+                <span className="text-nail-pink mr-2">•</span>
+                Relaxing atmosphere with attention to detail
+              </li>
+            </ul>
+            <ul className="text-gray-300 space-y-3">
+              <li className="flex items-start">
+                <span className="text-nail-pink mr-2">•</span>
+                Aftercare advice to maintain your beautiful nails
+              </li>
+              <li className="flex items-start">
+                <span className="text-nail-pink mr-2">•</span>
+                Flexible scheduling to fit your lifestyle
+              </li>
+              <li className="flex items-start">
+                <span className="text-nail-pink mr-2">•</span>
+                10% discount for first-time clients
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

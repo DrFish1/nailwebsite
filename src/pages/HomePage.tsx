@@ -14,19 +14,20 @@ const HomePage: React.FC = () => {
         
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">
-            Pamper Your Hands,
-            <span className="block text-nail-pink mt-2">Elevate Your Style</span>
+            Your Nails,
+            <span className="block text-nail-pink mt-2">My Passion</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-8 animate-slide-up">
-            Experience luxury nail care and stunning nail art in a relaxing atmosphere
+            I create beautiful, healthy nails that reflect your unique style and personality. 
+            From natural enhancements to stunning nail art - let me bring your vision to life.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
             <Link to="/booking" className="btn-primary inline-flex items-center justify-center">
-              Book Your Appointment
+              Book with Me
               <ChevronRight className="ml-2" size={20} />
             </Link>
             <Link to="/services" className="bg-transparent border-2 border-nail-pink text-nail-pink hover:bg-nail-pink hover:text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 inline-flex items-center justify-center">
-              View Services
+              View My Services
             </Link>
           </div>
         </div>
@@ -41,7 +42,7 @@ const HomePage: React.FC = () => {
       {/* Features Section */}
       <section className="py-20 px-4 bg-gradient-to-b from-black to-nail-black">
         <div className="max-w-6xl mx-auto">
-          <h2 className="section-heading text-center">Why Choose Luxe Nails?</h2>
+          <h2 className="section-heading text-center">Why Choose Me?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center group">
               <div className="w-20 h-20 bg-nail-pink/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-nail-pink/20 transition-all">
@@ -49,25 +50,25 @@ const HomePage: React.FC = () => {
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">Premium Quality</h3>
               <p className="text-gray-400">
-                We use only the finest products and latest techniques for stunning, long-lasting results
+                I use only the finest products and latest techniques to create stunning, long-lasting results that exceed your expectations
               </p>
             </div>
             <div className="text-center group">
               <div className="w-20 h-20 bg-nail-pink/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-nail-pink/20 transition-all">
                 <Heart className="text-nail-pink" size={32} />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2">Expert Technicians</h3>
+              <h3 className="text-xl font-semibold text-white mb-2">Personalized Care</h3>
               <p className="text-gray-400">
-                Our skilled artists bring years of experience and creativity to every appointment
+                Every appointment is tailored to you. I listen to your vision and bring years of expertise to create your perfect nails
               </p>
             </div>
             <div className="text-center group">
               <div className="w-20 h-20 bg-nail-pink/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-nail-pink/20 transition-all">
                 <Shield className="text-nail-pink" size={32} />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2">Hygiene First</h3>
+              <h3 className="text-xl font-semibold text-white mb-2">Health & Safety</h3>
               <p className="text-gray-400">
-                Strict sanitization protocols ensure a safe and clean environment for every client
+                I prioritize the health of your natural nails with strict sanitization and gentle techniques for lasting nail health
               </p>
             </div>
           </div>
@@ -77,13 +78,13 @@ const HomePage: React.FC = () => {
       {/* Popular Services */}
       <section className="py-20 px-4 bg-nail-black">
         <div className="max-w-6xl mx-auto">
-          <h2 className="section-heading text-center">Popular Services</h2>
+          <h2 className="section-heading text-center">My Most Popular Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { name: 'Gel Manicure', price: '$45', time: '45 min' },
-              { name: 'Acrylic Full Set', price: '$65', time: '90 min' },
-              { name: 'Nail Art Design', price: '$15+', time: '30 min' },
-              { name: 'Spa Pedicure', price: '$55', time: '60 min' },
+              { name: 'Gel-X Extensions', price: 'From $75', time: '90 min' },
+              { name: 'BIAB Natural Nails', price: 'From $55', time: '60 min' },
+              { name: 'Custom Nail Art', price: 'From $15', time: '30+ min' },
+              { name: 'Luxury Pedicure', price: 'From $65', time: '75 min' },
             ].map((service, index) => (
               <div key={index} className="bg-black/50 border border-gray-800 rounded-lg p-6 hover:border-nail-pink transition-all group">
                 <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-nail-pink transition-colors">
@@ -96,7 +97,7 @@ const HomePage: React.FC = () => {
           </div>
           <div className="text-center mt-8">
             <Link to="/services" className="btn-primary inline-flex items-center">
-              View All Services
+              View All My Services
               <ChevronRight className="ml-2" size={20} />
             </Link>
           </div>
@@ -106,7 +107,10 @@ const HomePage: React.FC = () => {
       {/* Gallery Preview */}
       <section className="py-20 px-4 bg-gradient-to-b from-nail-black to-black">
         <div className="max-w-6xl mx-auto">
-          <h2 className="section-heading text-center">Our Work</h2>
+          <h2 className="section-heading text-center">My Recent Work</h2>
+          <p className="text-center text-gray-300 text-lg mb-12">
+            Take a look at some of the beautiful nail transformations I've created for my clients
+          </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
               <div key={item} className="relative group overflow-hidden rounded-lg">
@@ -125,7 +129,7 @@ const HomePage: React.FC = () => {
           </div>
           <div className="text-center mt-8">
             <Link to="/gallery" className="btn-primary inline-flex items-center">
-              View Full Gallery
+              View My Full Gallery
               <ChevronRight className="ml-2" size={20} />
             </Link>
           </div>
@@ -142,13 +146,13 @@ const HomePage: React.FC = () => {
       <section className="py-20 px-4 bg-gradient-to-r from-nail-pink to-pink-600">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-white mb-4">
-            Ready to Transform Your Nails?
+            Ready to Create Your Perfect Nails?
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Book your appointment today and experience the luxury difference
+            Let's work together to bring your nail vision to life. Book your appointment and experience personalized nail artistry.
           </p>
           <Link to="/booking" className="bg-white text-nail-pink hover:bg-gray-100 font-bold py-4 px-8 rounded-lg transition-all duration-300 inline-flex items-center text-lg">
-            Book Now
+            Book with Me
             <ChevronRight className="ml-2" size={24} />
           </Link>
         </div>
