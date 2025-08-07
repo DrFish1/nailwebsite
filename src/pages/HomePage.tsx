@@ -191,59 +191,7 @@ const HomePage: React.FC = () => {
             ))}
           </div>
 
-          <div className="bg-gradient-to-r from-nail-pink to-pink-600 rounded-2xl p-8 text-center mb-12">
-            <h3 className="text-3xl font-bold text-white mb-4">
-              Ready to Experience Luxury?
-            </h3>
-            <p className="text-white/90 mb-8 text-lg">
-              Book your appointment today and let me create the perfect nails for you
-            </p>
-            <a 
-              href="#booking"
-              className="bg-white text-nail-pink hover:bg-gray-100 font-bold py-4 px-8 rounded-lg transition-all duration-300 inline-flex items-center text-lg shadow-lg"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector('#booking')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              Book My Appointment
-              <ChevronRight className="ml-2" size={24} />
-            </a>
-          </div>
 
-          <div className="bg-black/50 border border-gray-800 rounded-2xl p-8">
-            <h3 className="text-2xl font-semibold text-nail-pink mb-6">What You Can Expect:</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <ul className="text-gray-300 space-y-3">
-                <li className="flex items-start">
-                  <span className="text-nail-pink mr-2">•</span>
-                  Personalized consultation to understand your vision
-                </li>
-                <li className="flex items-start">
-                  <span className="text-nail-pink mr-2">•</span>
-                  Premium products and sterilized tools for every service
-                </li>
-                <li className="flex items-start">
-                  <span className="text-nail-pink mr-2">•</span>
-                  Relaxing atmosphere with attention to detail
-                </li>
-              </ul>
-              <ul className="text-gray-300 space-y-3">
-                <li className="flex items-start">
-                  <span className="text-nail-pink mr-2">•</span>
-                  Aftercare advice to maintain your beautiful nails
-                </li>
-                <li className="flex items-start">
-                  <span className="text-nail-pink mr-2">•</span>
-                  Flexible scheduling to fit your lifestyle
-                </li>
-                <li className="flex items-start">
-                  <span className="text-nail-pink mr-2">•</span>
-                  10% discount for first-time clients
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
       </section>
 
