@@ -941,64 +941,65 @@ const HomePage: React.FC = () => {
       <FAQ />
 
       {/* About Section */}
-      <section id="about" className="py-20 px-4 bg-black">
+      <section id="about" className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-black via-nail-black to-black overflow-hidden relative">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          {/* Decorative elements */}
+          <div className="absolute top-20 left-10 w-72 h-72 bg-nail-pink/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-nail-pink/5 rounded-full blur-3xl animate-pulse delay-700"></div>
+          
+          <div className="text-center mb-12 sm:mb-16 relative z-10">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
               About <span className="text-nail-pink">Me</span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Your premier nail artist, where artistry meets relaxation
+            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+              Your passionate nail artist bringing creativity and expertise to every appointment
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
-            <div>
-              <h3 className="text-3xl font-bold text-nail-pink mb-6">My Story</h3>
-              <p className="text-gray-300 mb-4">
-                I started my journey in nail artistry with a simple vision: to create beautiful, healthy nails 
-                that reflect each client's unique personality and style. What began as a passion has grown into 
-                a personalized nail experience that my clients love.
-              </p>
-              <p className="text-gray-300 mb-4">
-                I bring years of experience and a genuine passion for nail care to every appointment. 
-                I believe that beautiful nails are more than just a service – they're a form of 
-                self-expression and self-care that should make you feel confident and beautiful.
-              </p>
-              <p className="text-gray-300">
-                Today, I continue to innovate and elevate the nail care experience, combining 
-                traditional techniques with modern trends to create stunning results that exceed expectations.
-              </p>
+          <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center mb-16 sm:mb-20 relative z-10">
+            <div className="bg-black/40 backdrop-blur-sm border border-nail-pink/20 rounded-2xl p-6 sm:p-8 hover:border-nail-pink/40 transition-all duration-300">
+              <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-nail-pink to-nail-pink-light bg-clip-text text-transparent mb-6">My Story</h3>
+              <div className="space-y-4 text-gray-300 leading-relaxed">
+                <p>
+                  Hello, I'm Leanna, a passionate 21-year-old professional nail technician specializing in Gel-X extensions and artistic nail designs. My journey into the world of nail artistry began with a love for creativity and a desire to help people express themselves through beautiful nails.
+                </p>
+                <p>
+                  I specialize in Gel-X nails - a revolutionary lightweight, full-coverage soft gel extension system that provides a natural look and long-lasting wear without the need for acrylics or harsh chemicals. Every set is custom-crafted to complement your lifestyle and personal style.
+                </p>
+                <p>
+                  My mission is to create not just beautiful nails, but an experience that makes you feel confident, pampered, and absolutely radiant. I believe that your nails are a canvas for self-expression, and I'm here to bring your vision to life.
+                </p>
+              </div>
             </div>
-            <div className="relative">
-              <div className="aspect-square rounded-lg overflow-hidden border-4 border-nail-pink/20">
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-r from-nail-pink to-nail-pink-dark rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+              <div className="relative aspect-square rounded-2xl overflow-hidden border-2 border-nail-pink/30 group-hover:border-nail-pink/50 transition-all duration-300">
                 <img 
                   src="https://source.unsplash.com/600x600/?woman,nail-artist"
                   alt="Leanna - Professional Nail Artist"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-              </div>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-nail-pink rounded-full flex items-center justify-center">
-                <div className="text-center text-white">
-                  <div className="text-2xl font-bold">5+</div>
-                  <div className="text-sm">Years Experience</div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                <div className="absolute bottom-4 left-4 right-4">
+                  <p className="text-white font-bold text-xl">Leanna</p>
+                  <p className="text-nail-pink text-sm">Professional Nail Technician</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            <div className="text-center bg-nail-black/50 border border-gray-800 rounded-lg p-6">
-              <div className="text-nail-pink text-3xl font-bold mb-2">500+</div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-16 relative z-10">
+            <div className="text-center bg-gradient-to-br from-nail-black/80 to-black/60 backdrop-blur-sm border border-nail-pink/20 rounded-xl p-6 hover:border-nail-pink/40 hover:scale-105 transition-all duration-300 group">
+              <div className="text-nail-pink text-3xl sm:text-4xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">500+</div>
               <p className="text-gray-300">Happy Clients</p>
             </div>
-            <div className="text-center bg-nail-black/50 border border-gray-800 rounded-lg p-6">
-              <div className="text-nail-pink text-3xl font-bold mb-2">100%</div>
+            <div className="text-center bg-gradient-to-br from-nail-black/80 to-black/60 backdrop-blur-sm border border-nail-pink/20 rounded-xl p-6 hover:border-nail-pink/40 hover:scale-105 transition-all duration-300 group">
+              <div className="text-nail-pink text-3xl sm:text-4xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">100%</div>
               <p className="text-gray-300">Satisfaction Rate</p>
             </div>
-            <div className="text-center bg-nail-black/50 border border-gray-800 rounded-lg p-6">
-              <div className="text-nail-pink text-3xl font-bold mb-2">6</div>
-              <p className="text-gray-300">Premium Services</p>
+            <div className="text-center bg-gradient-to-br from-nail-black/80 to-black/60 backdrop-blur-sm border border-nail-pink/20 rounded-xl p-6 hover:border-nail-pink/40 hover:scale-105 transition-all duration-300 group">
+              <div className="text-nail-pink text-3xl sm:text-4xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">Gel-X</div>
+              <p className="text-gray-300">Specialist</p>
             </div>
           </div>
         </div>
