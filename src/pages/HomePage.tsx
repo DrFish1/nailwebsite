@@ -263,7 +263,7 @@ const HomePage: React.FC = () => {
               </div>
               
               {/* CTA Buttons - Moved outside to control spacing independently */}
-              <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-4 items-center mt-12 sm:mt-6">
+              <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-4 items-center mt-16 sm:mt-6">
                   <a 
                     href="#booking"
                     className="group relative overflow-hidden bg-gradient-to-r from-nail-pink to-nail-pink-dark text-black font-bold py-2.5 px-5 sm:py-4 sm:px-8 rounded-lg sm:rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 inline-flex items-center justify-center shadow-2xl shadow-nail-pink/25 hover:shadow-nail-pink/40 border border-nail-pink/20 text-sm sm:text-base max-w-xs w-full sm:max-w-none sm:w-auto"
