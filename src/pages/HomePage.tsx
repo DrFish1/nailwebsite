@@ -100,42 +100,42 @@ const HomePage: React.FC = () => {
       name: 'Gel-X Extensions',
       icon: <Sparkles className="text-nail-pink" size={32} />,
       description: 'Lightweight, soak-off gel extensions that provide a natural-looking length and strength. Perfect for everyday elegance with a sophisticated finish that lasts weeks.',
-      price: 'From $75',
+      price: 'From £40',
       duration: '90 min'
     },
     {
       name: 'BIAB Natural Nails',
       icon: <Heart className="text-nail-pink" size={32} />,
       description: 'Builder in a bottle gel treatment that strengthens and adds subtle length to your natural nails. Healthy, beautiful nails that grow stronger with each application.',
-      price: 'From $55',
+      price: 'From £35',
       duration: '60 min'
     },
     {
       name: 'Infills & Maintenance',
       icon: <RefreshCw className="text-nail-pink" size={32} />,
       description: 'Professional maintenance service to keep your nails looking fresh and beautiful. Fill in growth, reshape, and refresh your polish for continued perfection.',
-      price: 'From $45',
+      price: 'From £35',
       duration: '45 min'
     },
     {
       name: 'Pedicure',
       icon: <Droplet className="text-nail-pink" size={32} />,
       description: 'Indulge in a completely relaxing pedicure experience with professional foot care, exfoliation, massage, and beautiful polish application.',
-      price: 'From $65',
+      price: 'From £28',
       duration: '75 min'
     },
     {
       name: 'Safe Removals',
       icon: <Shield className="text-nail-pink" size={32} />,
       description: 'Gentle, professional removal of gel polish or extensions that prioritizes the health of your natural nails. No damage, just healthy nail restoration.',
-      price: 'From $25',
+      price: 'From £8',
       duration: '30 min'
     },
     {
       name: 'Custom Art & Extras',
       icon: <Palette className="text-nail-pink" size={32} />,
       description: 'Personalized nail art, French tips, chrome effects, glitter, rhinestones, and specialty treatments to make your nails uniquely yours.',
-      price: 'From $15',
+      price: 'From £5',
       duration: '30+ min'
     },
   ];
