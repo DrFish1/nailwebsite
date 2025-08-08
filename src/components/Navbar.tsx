@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className="sticky top-0 z-50 bg-black/90 backdrop-blur-sm border-b border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-24">
+        <div className="flex items-center justify-between h-32">
           <div className="flex items-center">
             <a 
               href="#home"
@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
                 <img 
                   src="/logo.png" 
                   alt="Nail Salon Logo" 
-                  className="relative z-10 h-20 w-auto transition-transform duration-300 group-hover:scale-110 drop-shadow-lg"
+                  className="relative z-10 h-28 w-auto transition-transform duration-300 group-hover:scale-110 drop-shadow-lg"
                 />
               </div>
             </a>

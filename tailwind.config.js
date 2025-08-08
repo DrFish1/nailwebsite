@@ -9,7 +9,7 @@ module.exports = {
         'nail-black': '#1C2526',
         'nail-pink': '#FF69B4',
         'nail-pink-light': '#FFB6C1',
-        'nail-pink-dark': '#DC143C',
+        'nail-pink-dark': '#ea526f',
       },
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif'],

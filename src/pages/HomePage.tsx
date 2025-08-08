@@ -170,22 +170,21 @@ const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden">
+      <section id="home" className="relative min-h-screen bg-black overflow-hidden">
         {/* Aurora Background */}
         <div className="absolute inset-0">
           <Aurora 
-            colorStops={["#FF69B4", "#FFB6C1", "#FF1493"]} 
+            colorStops={["#FF69B4", "#FFB6C1", "#ea526f"]} 
             amplitude={1.5}
             blend={0.7}
             speed={0.8}
           />
         </div>
 
-        {/* Animated Grid Background */}
+        {/* Subtle ambient lighting */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,105,180,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,105,180,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-nail-pink/5 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-nail-pink/3 rounded-full blur-2xl animate-pulse delay-1000"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-nail-pink-dark/3 rounded-full blur-2xl animate-pulse delay-1000"></div>
         </div>
 
         <div className="relative z-10 flex items-center min-h-screen px-4 sm:px-6 lg:px-8">
