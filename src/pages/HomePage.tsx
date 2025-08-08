@@ -184,7 +184,7 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen bg-black overflow-hidden">
         {/* Aurora Background */}
@@ -203,9 +203,24 @@ const HomePage: React.FC = () => {
           <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-nail-pink-dark/3 rounded-full blur-2xl animate-pulse delay-1000"></div>
         </div>
 
-        <div className="relative z-10 flex items-center min-h-screen px-4 sm:px-6 md:px-8 lg:px-8">
+        <div className="relative z-10 flex items-center min-h-screen px-4 sm:px-6 md:px-8 lg:px-8 overflow-x-hidden">
           <div className="max-w-7xl mx-auto w-full">
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+              
+              {/* Mobile Logo - Only visible on mobile */}
+              <div className="lg:hidden flex justify-center mb-6">
+                <div className="relative">
+                  {/* Glow effect */}
+                  <div className="absolute inset-0 bg-nail-pink/20 rounded-full blur-2xl scale-150"></div>
+                  <div className="absolute inset-0 bg-nail-pink/10 rounded-full blur-xl scale-125"></div>
+                  {/* Logo */}
+                  <img 
+                    src="/logo.png" 
+                    alt="Leanna's Nail Art Logo" 
+                    className="relative z-10 w-24 h-24 sm:w-28 sm:h-28 object-contain rounded-full border-2 border-nail-pink/30 bg-black/20 backdrop-blur-sm p-2"
+                  />
+                </div>
+              </div>
               
               {/* Left Column - Main Content */}
               <div className="space-y-4 sm:space-y-6 lg:space-y-8">
@@ -243,10 +258,10 @@ const HomePage: React.FC = () => {
                 </p>
 
                 {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center">
                   <a 
                     href="#booking"
-                    className="group relative overflow-hidden bg-gradient-to-r from-nail-pink to-nail-pink-dark text-black font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-lg sm:rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 inline-flex items-center justify-center shadow-2xl shadow-nail-pink/25 hover:shadow-nail-pink/40 border border-nail-pink/20 text-sm sm:text-base"
+                    className="group relative overflow-hidden bg-gradient-to-r from-nail-pink to-nail-pink-dark text-black font-bold py-2.5 px-5 sm:py-4 sm:px-8 rounded-lg sm:rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 inline-flex items-center justify-center shadow-2xl shadow-nail-pink/25 hover:shadow-nail-pink/40 border border-nail-pink/20 text-sm sm:text-base max-w-xs w-full sm:max-w-none sm:w-auto"
                     onClick={(e) => {
                       e.preventDefault();
                       document.querySelector('#booking')?.scrollIntoView({ behavior: 'smooth' });
@@ -261,7 +276,7 @@ const HomePage: React.FC = () => {
                   
                   <a 
                     href="#services"
-                    className="group relative overflow-hidden bg-transparent border-2 border-nail-pink/30 text-white hover:text-black font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-lg sm:rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 inline-flex items-center justify-center backdrop-blur-sm hover:bg-nail-pink/10 text-sm sm:text-base"
+                    className="group relative overflow-hidden bg-transparent border-2 border-nail-pink/30 text-white hover:text-black font-bold py-2.5 px-5 sm:py-4 sm:px-8 rounded-lg sm:rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 inline-flex items-center justify-center backdrop-blur-sm hover:bg-nail-pink/10 text-sm sm:text-base max-w-xs w-full sm:max-w-none sm:w-auto"
                     onClick={(e) => {
                       e.preventDefault();
                       document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' });
@@ -348,7 +363,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Premium Services Section */}
-      <section id="services" className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-b from-black to-nail-black">
+      <section id="services" className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-b from-black to-nail-black overflow-x-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
@@ -399,7 +414,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Booking Section */}
-      <section id="booking" className="py-6 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-6 bg-gradient-to-b from-nail-black to-black">
+      <section id="booking" className="py-6 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-6 bg-gradient-to-b from-nail-black to-black overflow-x-hidden">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-6 sm:mb-8 lg:mb-12">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4">
@@ -433,7 +448,7 @@ const HomePage: React.FC = () => {
             ))}
           </div>
 
-          <div className="bg-black/50 border border-gray-800 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 max-h-[70vh] overflow-y-auto">
+          <div className="bg-black/50 border border-gray-800 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8">
             {/* Step Content */}
             {step === 1 && (
               <div>
@@ -680,7 +695,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Instagram Gallery */}
-      <section id="gallery" className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-b from-nail-black to-black">
+      <section id="gallery" className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-b from-nail-black to-black overflow-x-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-6 sm:mb-8 lg:mb-12">
             <div className="flex items-center justify-center mb-4 sm:mb-6">
@@ -747,7 +762,7 @@ const HomePage: React.FC = () => {
                   </button>
 
                   {/* Gallery Items */}
-                  <div className="flex justify-center gap-2 sm:gap-3 lg:gap-4 mx-8 sm:mx-10 lg:mx-12">
+                  <div className="flex justify-center gap-2 sm:gap-3 lg:gap-4 mx-4 sm:mx-6 lg:mx-8">
                     {galleryItems.slice(currentGalleryIndex, currentGalleryIndex + itemsPerView).map((item, index) => (
                       <a
                         key={`${item.type}-${currentGalleryIndex + index}`}
