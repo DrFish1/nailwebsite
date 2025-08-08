@@ -90,11 +90,9 @@ const HomePage: React.FC = () => {
   };
 
   const availableTimes = [
-    '9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM',
-    '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-    '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM',
-    '3:00 PM', '3:30 PM', '4:00 PM', '4:30 PM',
-    '5:00 PM', '5:30 PM', '6:00 PM', '6:30 PM',
+    '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM',
+    '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM',
+    '6:00 PM', '7:00 PM', '8:00 PM'
   ];
 
   const detailedServices = [
@@ -535,37 +533,42 @@ const HomePage: React.FC = () => {
 
             {step === 2 && (
               <div>
-                <h3 className="text-2xl font-bold text-white mb-6">Select Date & Time</h3>
-                <p className="text-gray-300 mb-6">When would you like to schedule your appointment?</p>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-nail-pink mb-2">Select Date</label>
-                    <input
-                      type="date"
-                      value={selectedDate}
-                      onChange={(e) => setSelectedDate(e.target.value)}
-                      min={new Date().toISOString().split('T')[0]}
-                      className="w-full p-3 bg-black border border-gray-800 rounded-lg text-white focus:border-nail-pink focus:outline-none"
-                    />
+                <h3 className="text-2xl font-bold text-white mb-4">Select Date & Time</h3>
+                <p className="text-gray-300 mb-6">Choose your preferred appointment slot</p>
+                
+                {/* Streamlined Date Selection */}
+                <div className="mb-6">
+                  <label className="block text-nail-pink mb-3 text-lg font-semibold">Select Date</label>
+                  <input
+                    type="date"
+                    value={selectedDate}
+                    onChange={(e) => setSelectedDate(e.target.value)}
+                    min={new Date().toISOString().split('T')[0]}
+                    className="w-full p-4 bg-black border-2 border-gray-800 rounded-xl text-white text-lg focus:border-nail-pink focus:outline-none hover:border-gray-600 transition-all"
+                  />
+                </div>
+
+                {/* Streamlined Time Selection */}
+                <div>
+                  <label className="block text-nail-pink mb-3 text-lg font-semibold">
+                    Available Times (10am - 8pm)
+                  </label>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                    {availableTimes.map((time) => (
+                      <button
+                        key={time}
+                        onClick={() => setSelectedTime(time)}
+                        className={`p-3 rounded-xl border-2 text-base font-medium transition-all transform hover:scale-105 ${
+                          selectedTime === time
+                            ? 'border-nail-pink bg-nail-pink text-black shadow-lg shadow-nail-pink/25'
+                            : 'border-gray-700 bg-gray-900/50 text-gray-300 hover:border-nail-pink/50 hover:bg-nail-pink/10'
+                        }`}
+                      >
+                        {time}
+                      </button>
+                    ))}
                   </div>
-                  <div>
-                    <label className="block text-nail-pink mb-2">Available Times</label>
-                    <div className="grid grid-cols-3 gap-2 max-h-64 overflow-y-auto">
-                      {availableTimes.map((time) => (
-                        <button
-                          key={time}
-                          onClick={() => setSelectedTime(time)}
-                          className={`p-2 rounded border text-sm transition-all ${
-                            selectedTime === time
-                              ? 'border-nail-pink bg-nail-pink text-white'
-                              : 'border-gray-800 text-gray-300 hover:border-nail-pink/50'
-                          }`}
-                        >
-                          {time}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
+                  <p className="text-gray-400 text-sm mt-3">Select from available hourly slots</p>
                 </div>
               </div>
             )}
