@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className="sticky top-0 z-50 bg-black/90 backdrop-blur-sm border-b border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-44">
+        <div className="flex items-center justify-between py-2">
           <div className="flex items-center">
             <a 
               href="#home"
@@ -27,12 +27,11 @@ const Navbar: React.FC = () => {
               }}
             >
               <div className="relative">
-                <div className="absolute inset-0 bg-nail-pink rounded-full blur-xl opacity-60 group-hover:opacity-90 transition-opacity duration-300 scale-125"></div>
-                <div className="absolute inset-0 bg-nail-pink rounded-full blur-md opacity-40 group-hover:opacity-70 transition-opacity duration-300 scale-110"></div>
+                <div className="absolute inset-0 bg-nail-pink rounded-full blur-2xl opacity-50 group-hover:opacity-80 transition-opacity duration-300"></div>
                 <img 
                   src="/logo.png" 
                   alt="Nail Salon Logo" 
-                  className="relative z-10 h-40 w-auto transition-transform duration-300 group-hover:scale-110 drop-shadow-lg"
+                  className="relative z-10 h-40 w-auto transition-transform duration-300 group-hover:scale-105 drop-shadow-2xl"
                 />
               </div>
             </a>

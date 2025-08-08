@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronRight, Sparkles, Heart, Shield, Droplet, RefreshCw, Palette, User, Phone, Mail, Check, MapPin, Clock, Send, Facebook, Instagram, Twitter } from 'lucide-react';
-import Testimonials from '../components/Testimonials';
+import { ChevronRight, Sparkles, Heart, Shield, Droplet, RefreshCw, Palette, User, Phone, Mail, Check, MapPin, Clock, Send, Facebook, Instagram, Twitter, MessageCircle, Star } from 'lucide-react';
 import FAQ from '../components/FAQ';
 import RotatingText from '../components/RotatingText';
 import Aurora from '../components/Aurora';
@@ -174,7 +173,7 @@ const HomePage: React.FC = () => {
         {/* Aurora Background */}
         <div className="absolute inset-0">
           <Aurora 
-            colorStops={["#FF69B4", "#FFB6C1", "#ea526f"]} 
+            colorStops={["#ea4c98", "#f06bb3", "#d63384"]} 
             amplitude={1.5}
             blend={0.7}
             speed={0.8}
@@ -651,46 +650,164 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Gallery Preview */}
+      {/* Instagram Gallery */}
       <section id="gallery" className="py-20 px-4 bg-gradient-to-b from-nail-black to-black">
         <div className="max-w-6xl mx-auto">
-          <h2 className="section-heading text-center">My Recent Work</h2>
-          <p className="text-center text-gray-300 text-lg mb-12">
-            Take a look at some of the beautiful nail transformations I've created for my clients
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-              <div key={item} className="relative group overflow-hidden rounded-lg">
-                <div className="aspect-square bg-gradient-to-br from-nail-pink/20 to-nail-pink/10">
-                  <img 
-                    src={`https://source.unsplash.com/400x400/?nail-art,manicure&sig=${item}`}
-                    alt={`Nail design ${item}`}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <span className="text-white font-medium">View Design</span>
-                </div>
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center mb-6">
+              <div className="bg-gradient-to-r from-nail-pink to-nail-pink-dark p-3 rounded-full">
+                <Instagram className="w-8 h-8 text-white" />
               </div>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">Follow My Work</h2>
+            <a 
+              href="https://instagram.com/leannasnailart" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-nail-pink hover:text-nail-pink-light transition-colors text-lg font-medium"
+            >
+              @leannasnailart
+            </a>
+          </div>
+          
+          <div className="grid grid-cols-3 md:grid-cols-5 gap-1 md:gap-2 mb-8">
+            {[
+              '/images/511441557_17890778811269129_8114663373759375153_n.jpg',
+              '/images/514515057_17890778652269129_8760343329118656117_n.jpg',
+              '/images/522670020_17893478088269129_3874938671507511412_n.jpg',
+              '/images/524396385_17894060979269129_36320443423056956_n.jpg',
+              '/images/524420889_17894061024269129_1191177205688230337_n.jpg'
+            ].map((image, index) => (
+              <a
+                key={index}
+                href="https://instagram.com/leannasnailart"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative group overflow-hidden aspect-square bg-black"
+              >
+                <img 
+                  src={image}
+                  alt={`Nail art design ${index + 1}`}
+                  className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:brightness-75"
+                />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="flex items-center space-x-4 text-white">
+                    <div className="flex items-center">
+                      <Heart className="w-6 h-6 fill-white" />
+                    </div>
+                    <div className="flex items-center">
+                      <MessageCircle className="w-6 h-6 fill-white" />
+                    </div>
+                  </div>
+                </div>
+              </a>
             ))}
           </div>
-          <div className="text-center mt-8">
-            <button 
-              className="btn-primary inline-flex items-center"
-              onClick={() => {
-                // Could expand gallery or scroll to more images
-                alert('More gallery images coming soon!');
-              }}
+
+          <div className="text-center">
+            <a 
+              href="https://instagram.com/leannasnailart"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 shadow-lg shadow-pink-500/50 font-medium rounded-lg text-sm px-6 py-3 transition-all duration-300 hover:scale-105"
             >
-              View My Full Gallery
-              <ChevronRight className="ml-2" size={20} />
-            </button>
+              <Instagram className="mr-2" size={20} />
+              View More on Instagram
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <Testimonials />
+      {/* Google Reviews Widget */}
+      <section className="py-20 px-4 bg-gradient-to-b from-black to-nail-black">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center mb-6">
+              <div className="bg-gradient-to-r from-nail-pink to-nail-pink-dark p-3 rounded-full">
+                <Star className="w-8 h-8 text-white fill-white" />
+              </div>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Client Reviews</h2>
+            <div className="flex items-center justify-center mb-4">
+              <div className="flex space-x-1">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <Star key={star} className="w-6 h-6 text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <span className="ml-3 text-2xl font-bold text-white">5.0</span>
+            </div>
+            <a 
+              href="https://maps.app.goo.gl/FTe7jzsQbngrTEUd7" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-nail-pink hover:text-nail-pink-light transition-colors text-lg font-medium"
+            >
+              View on Google
+            </a>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {[
+              {
+                name: "Sarah M.",
+                rating: 5,
+                date: "2 weeks ago",
+                text: "Absolutely love my nails! Leanna is so talented and professional. The attention to detail is amazing.",
+                verified: true
+              },
+              {
+                name: "Emma L.",
+                rating: 5,
+                date: "1 month ago",
+                text: "Best nail tech I've ever been to! My BIAB nails look perfect and last for weeks. Highly recommend!",
+                verified: true
+              },
+              {
+                name: "Jessica R.",
+                rating: 5,
+                date: "3 weeks ago",
+                text: "Leanna is incredible! She took my inspiration photo and made it even better. Can't wait for my next appointment.",
+                verified: true
+              }
+            ].map((review, index) => (
+              <div key={index} className="bg-black/40 backdrop-blur-sm border border-gray-800 rounded-xl p-6 hover:border-nail-pink/30 transition-all duration-300">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <h3 className="text-white font-semibold">{review.name}</h3>
+                    <div className="flex items-center mt-1">
+                      <div className="flex space-x-0.5">
+                        {[...Array(review.rating)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                        ))}
+                      </div>
+                      <span className="ml-2 text-gray-400 text-sm">{review.date}</span>
+                    </div>
+                  </div>
+                  {review.verified && (
+                    <div className="flex items-center text-blue-400 text-sm">
+                      <Check className="w-4 h-4 mr-1" />
+                      <span>Verified</span>
+                    </div>
+                  )}
+                </div>
+                <p className="text-gray-300">{review.text}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <a 
+              href="https://maps.app.goo.gl/FTe7jzsQbngrTEUd7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 shadow-lg shadow-pink-500/50 font-medium rounded-lg text-sm px-6 py-3 transition-all duration-300 hover:scale-105"
+            >
+              <Star className="mr-2" size={20} />
+              Leave a Review on Google
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ */}
       <FAQ />
