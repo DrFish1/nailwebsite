@@ -83,9 +83,9 @@ const HomePage: React.FC = () => {
       { name: 'BIAB Soak Off', price: 8 },
       { name: 'Acrylic Removal', price: 12 },
       { name: 'Colour Free Manicure', price: 10 },
-      { name: '3D Designs', price: 3 },
-      { name: 'Added Gems/Crystals', price: 2 },
-      { name: 'Chrome', price: 2 }
+      { name: '3D Designs', price: 5 },
+      { name: 'Added Gems/Crystals', price: 5 },
+      { name: 'Chrome', price: 5 }
     ]
   };
 
