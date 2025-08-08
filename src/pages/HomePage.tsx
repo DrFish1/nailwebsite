@@ -536,16 +536,18 @@ const HomePage: React.FC = () => {
                 <h3 className="text-2xl font-bold text-white mb-4">Select Date & Time</h3>
                 <p className="text-gray-300 mb-6">Choose your preferred appointment slot</p>
                 
-                {/* Streamlined Date Selection */}
+                {/* Inline Datepicker */}
                 <div className="mb-6">
                   <label className="block text-nail-pink mb-3 text-lg font-semibold">Select Date</label>
-                  <input
-                    type="date"
-                    value={selectedDate}
-                    onChange={(e) => setSelectedDate(e.target.value)}
-                    min={new Date().toISOString().split('T')[0]}
-                    className="w-full p-4 bg-black border-2 border-gray-800 rounded-xl text-white text-lg focus:border-nail-pink focus:outline-none hover:border-gray-600 transition-all"
-                  />
+                  <div className="bg-black border-2 border-gray-800 rounded-xl p-4">
+                    <div id="datepicker-inline" inline-datepicker data-date="02/25/2024"></div>
+                    {/* Hidden input to maintain form functionality */}
+                    <input
+                      type="hidden"
+                      value={selectedDate}
+                      onChange={(e) => setSelectedDate(e.target.value)}
+                    />
+                  </div>
                 </div>
 
                 {/* Streamlined Time Selection */}
