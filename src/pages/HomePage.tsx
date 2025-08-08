@@ -203,27 +203,30 @@ const HomePage: React.FC = () => {
           <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-nail-pink-dark/3 rounded-full blur-2xl animate-pulse delay-1000"></div>
         </div>
 
-        <div className="relative z-10 flex items-center min-h-screen px-4 sm:px-6 md:px-8 lg:px-8 overflow-x-hidden py-20 sm:py-0">
+        {/* Mobile Logo at top - Only visible on mobile */}
+        <div className="lg:hidden absolute top-4 left-1/2 transform -translate-x-1/2 z-20">
+          <div className="relative">
+            {/* Glow effect */}
+            <div className="absolute inset-0 bg-nail-pink/30 rounded-full blur-3xl scale-150"></div>
+            <div className="absolute inset-0 bg-nail-pink/20 rounded-full blur-2xl scale-125"></div>
+            {/* Logo */}
+            <img 
+              src="/logo.png" 
+              alt="Leanna's Nail Art Logo" 
+              className="relative z-10 w-20 h-20 object-cover rounded-full border-2 border-nail-pink/30 bg-black/20 backdrop-blur-sm p-0.5"
+            />
+          </div>
+        </div>
+
+        <div className="relative z-10 flex items-center min-h-screen px-4 sm:px-6 md:px-8 lg:px-8 overflow-x-hidden py-16 sm:py-0">
           <div className="max-w-7xl mx-auto w-full">
             <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-16 items-center">
               
-              {/* Mobile Logo - Only visible on mobile */}
-              <div className="lg:hidden flex justify-center mb-4 -mt-8 sm:mt-0">
-                <div className="relative">
-                  {/* Glow effect */}
-                  <div className="absolute inset-0 bg-nail-pink/30 rounded-full blur-3xl scale-150"></div>
-                  <div className="absolute inset-0 bg-nail-pink/20 rounded-full blur-2xl scale-125"></div>
-                  {/* Logo */}
-                  <img 
-                    src="/logo.png" 
-                    alt="Leanna's Nail Art Logo" 
-                    className="relative z-10 w-32 h-32 sm:w-36 sm:h-36 object-cover rounded-full border-2 border-nail-pink/30 bg-black/20 backdrop-blur-sm p-1"
-                  />
-                </div>
-              </div>
+              {/* Mobile spacer for logo */}
+              <div className="lg:hidden h-16"></div>
               
               {/* Left Column - Main Content */}
-              <div className="space-y-3 sm:space-y-5 lg:space-y-8">
+              <div className="space-y-2.5 sm:space-y-5 lg:space-y-8 -mt-8 sm:mt-0">
                 {/* Badge */}
                 <div className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-nail-pink/10 border border-nail-pink/20 rounded-full text-nail-pink text-xs sm:text-sm font-medium backdrop-blur-sm">
                   <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
@@ -231,7 +234,7 @@ const HomePage: React.FC = () => {
                 </div>
 
                 {/* Main Heading */}
-                <div className="space-y-2 sm:space-y-3 lg:space-y-6">
+                <div className="space-y-1.5 sm:space-y-3 lg:space-y-6">
                   <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
                     <span className="block mb-1">Experience</span>
                     <span className="block mb-1">
@@ -258,7 +261,7 @@ const HomePage: React.FC = () => {
                 </p>
 
                 {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-4 items-center mt-4 sm:mt-6">
+                <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-4 items-center mt-3 sm:mt-6">
                   <a 
                     href="#booking"
                     className="group relative overflow-hidden bg-gradient-to-r from-nail-pink to-nail-pink-dark text-black font-bold py-2.5 px-5 sm:py-4 sm:px-8 rounded-lg sm:rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 inline-flex items-center justify-center shadow-2xl shadow-nail-pink/25 hover:shadow-nail-pink/40 border border-nail-pink/20 text-sm sm:text-base max-w-xs w-full sm:max-w-none sm:w-auto"
@@ -344,7 +347,7 @@ const HomePage: React.FC = () => {
 
         {/* Animated Scroll Arrow */}
         <div 
-          className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-opacity duration-500 ${
+          className={`absolute bottom-12 sm:bottom-8 left-1/2 transform -translate-x-1/2 transition-opacity duration-500 ${
             showScrollArrow ? 'opacity-100' : 'opacity-0 pointer-events-none'
           }`}
         >
