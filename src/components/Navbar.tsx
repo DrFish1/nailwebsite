@@ -39,7 +39,7 @@ const Navbar: React.FC = () => {
       isVisible ? 'translate-y-0' : '-translate-y-full'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-1">
+        <div className="flex items-center justify-between h-28 overflow-visible">
           <div className="flex items-center">
             <a 
               href="#home"
