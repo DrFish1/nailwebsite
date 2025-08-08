@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ChevronRight, Sparkles, Heart, Shield, Droplet, RefreshCw, Palette, User, Phone, Mail, Check, MapPin, Clock, Send, Facebook, Instagram, Twitter, MessageCircle, Star } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ChevronRight, ChevronLeft, ChevronDown, Sparkles, Heart, Shield, Droplet, RefreshCw, Palette, User, Phone, Mail, Check, MapPin, Clock, Send, Facebook, Instagram, Twitter, MessageCircle, Star } from 'lucide-react';
 import FAQ from '../components/FAQ';
 import RotatingText from '../components/RotatingText';
 import Aurora from '../components/Aurora';
@@ -17,6 +17,23 @@ const HomePage: React.FC = () => {
     phone: '',
     notes: '',
   });
+
+  // Gallery navigation state
+  const [currentGalleryIndex, setCurrentGalleryIndex] = useState(0);
+  
+  // Scroll arrow visibility state
+  const [showScrollArrow, setShowScrollArrow] = useState(true);
+
+  // Handle scroll arrow visibility
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setShowScrollArrow(scrollY < 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Rotating text synonyms for "amazing"
   const amazingSynonyms = [
@@ -262,8 +279,8 @@ const HomePage: React.FC = () => {
                     <div className="text-sm text-gray-400">Happy Clients</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-nail-pink">5+</div>
-                    <div className="text-sm text-gray-400">Years Experience</div>
+                    <div className="text-2xl font-bold text-nail-pink">Premium</div>
+                    <div className="text-sm text-gray-400">Quality</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-nail-pink">100%</div>
@@ -310,11 +327,23 @@ const HomePage: React.FC = () => {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-nail-pink/50 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-nail-pink rounded-full mt-2"></div>
-          </div>
+        {/* Animated Scroll Arrow */}
+        <div 
+          className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-opacity duration-500 ${
+            showScrollArrow ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          }`}
+        >
+          <button
+            onClick={() => {
+              document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="group flex flex-col items-center space-y-2 text-white/60 hover:text-nail-pink transition-colors duration-300"
+          >
+            <span className="text-sm font-medium">Scroll Down</span>
+            <div className="animate-bounce">
+              <ChevronDown size={32} className="group-hover:text-nail-pink transition-colors duration-300" />
+            </div>
+          </button>
         </div>
       </section>
 
@@ -670,87 +699,113 @@ const HomePage: React.FC = () => {
             </a>
           </div>
           
-          <div className="overflow-x-auto pb-4">
-            <div className="flex space-x-3 w-max">
-              {[
-                '/images/503680241_17888373270269129_2690675863906272825_n.jpg',
-                '/images/503835599_17887900803269129_5283935084631216084_n.jpg',
-                '/images/504122231_17888062995269129_4729375017275520615_n.jpg',
-                '/images/510951914_17890377492269129_1537835396454570267_n.jpg',
-                '/images/511441557_17890778811269129_8114663373759375153_n.jpg',
-                '/images/514515057_17890778652269129_8760343329118656117_n.jpg',
-                '/images/525564107_17894765655269129_489999139858400517_n.jpg',
-                '/images/528685970_17894765607269129_1230354279370501049_n.jpg'
-              ].map((image, index) => (
-                <a
-                  key={index}
-                  href="https://instagram.com/leannasnailart"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 flex-shrink-0 overflow-hidden rounded-xl border-2 border-gray-800 hover:border-nail-pink transition-all duration-300"
-                >
-                  <img 
-                    src={image}
-                    alt={`Nail art design ${index + 1}`}
-                    className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:brightness-75"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40">
-                    <div className="flex items-center space-x-4 text-white">
-                      <div className="flex items-center bg-white/20 rounded-full p-2">
-                        <Heart className="w-6 h-6 fill-white" />
-                      </div>
-                      <div className="flex items-center bg-white/20 rounded-full p-2">
-                        <MessageCircle className="w-6 h-6 fill-white" />
-                      </div>
-                    </div>
+          <div className="relative">
+            {(() => {
+              const galleryItems = [
+                ...['503680241_17888373270269129_2690675863906272825_n..jpg',
+                    '503835599_17887900803269129_5283935084631216084_n..jpg', 
+                    '504122231_17888062995269129_4729375017275520615_n..jpg',
+                    '510951914_17890377492269129_1537835396454570267_n..jpg',
+                    '511441557_17890778811269129_8114663373759375153_n..jpg',
+                    '514515057_17890778652269129_8760343329118656117_n..jpg',
+                    '525564107_17894765655269129_489999139858400517_n..jpg',
+                    '528685970_17894765607269129_1230354279370501049_n..jpg'].map(img => ({ type: 'image', src: `/images/${img}` })),
+                ...['AQMzueuh1yYxf6u7Vbyi-nmJaZNd0BcKltBMXzuuY2V52RfQLATTLXAJfYeYEPp7dtb9feIC1eKrhMJF4BMBI0L6FJ_w4lSZ.mp4',
+                    'AQNK5rskVUZO2WTLypSbDp7Mz5svmGsA7vIT1BFRyA3nsDxbm6Ozv4WzwWv3YznDDPE5D083s12CcE8Du-xK5A1ZfE6eQ4lj.mp4',
+                    'AQNrMfE__C4xuNNdqP82qcdRd0pxIuhE80Rlm15FWHGRpz-SmdG3ai_j77KaFritg3GnT3f-0nThRS37EgEEF38ywGqPwO-w.mp4'].map(vid => ({ type: 'video', src: `/images/${vid}` }))
+              ];
+
+              const itemsPerView = 3;
+              const maxIndex = Math.max(0, galleryItems.length - itemsPerView);
+
+              return (
+                <>
+                  {/* Navigation Buttons */}
+                  <button
+                    onClick={() => setCurrentGalleryIndex(Math.max(0, currentGalleryIndex - 1))}
+                    disabled={currentGalleryIndex === 0}
+                    className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-nail-pink/80 hover:bg-nail-pink text-white rounded-full p-3 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+                  >
+                    <ChevronLeft size={24} />
+                  </button>
+
+                  <button
+                    onClick={() => setCurrentGalleryIndex(Math.min(maxIndex, currentGalleryIndex + 1))}
+                    disabled={currentGalleryIndex >= maxIndex}
+                    className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-nail-pink/80 hover:bg-nail-pink text-white rounded-full p-3 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+                  >
+                    <ChevronRight size={24} />
+                  </button>
+
+                  {/* Gallery Items */}
+                  <div className="flex justify-center gap-4 mx-12">
+                    {galleryItems.slice(currentGalleryIndex, currentGalleryIndex + itemsPerView).map((item, index) => (
+                      <a
+                        key={`${item.type}-${currentGalleryIndex + index}`}
+                        href="https://instagram.com/leannasnailart"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 flex-shrink-0 overflow-hidden rounded-xl border-2 border-gray-800 hover:border-nail-pink transition-all duration-300"
+                      >
+                        {item.type === 'image' ? (
+                          <img 
+                            src={item.src}
+                            alt={`Nail art design ${currentGalleryIndex + index + 1}`}
+                            className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:brightness-75"
+                            onError={(e) => console.log(`Failed to load image: ${item.src}`)}
+                          />
+                        ) : (
+                          <video 
+                            src={item.src}
+                            className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:brightness-75"
+                            muted
+                            loop
+                            playsInline
+                            onMouseEnter={(e) => e.currentTarget.play()}
+                            onMouseLeave={(e) => e.currentTarget.pause()}
+                            onError={(e) => console.log(`Failed to load video: ${item.src}`)}
+                          />
+                        )}
+                        
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40">
+                          <div className="flex items-center space-x-4 text-white">
+                            <div className="flex items-center bg-white/20 rounded-full p-2">
+                              <Heart className="w-6 h-6 fill-white" />
+                            </div>
+                            <div className="flex items-center bg-white/20 rounded-full p-2">
+                              <MessageCircle className="w-6 h-6 fill-white" />
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {item.type === 'video' && (
+                          <div className="absolute bottom-2 right-2 bg-black/60 rounded-full p-1">
+                            <div className="w-6 h-6 flex items-center justify-center">
+                              <div className="w-0 h-0 border-l-4 border-l-white border-t-2 border-t-transparent border-b-2 border-b-transparent ml-1"></div>
+                            </div>
+                          </div>
+                        )}
+                      </a>
+                    ))}
                   </div>
-                </a>
-              ))}
-              
-              {/* Video content */}
-              {[
-                '/images/AQMzueuh1yYxf6u7Vbyi-nmJaZNd0BcKltBMXzuuY2V52RfQLATTLXAJfYeYEPp7dtb9feIC1eKrhMJF4BMBI0L6FJ_w4lSZ.mp4',
-                '/images/AQNK5rskVUZO2WTLypSbDp7Mz5svmGsA7vIT1BFRyA3nsDxbm6Ozv4WzwWv3YznDDPE5D083s12CcE8Du-xK5A1ZfE6eQ4lj.mp4',
-                '/images/AQNrMfE__C4xuNNdqP82qcdRd0pxIuhE80Rlm15FWHGRpz-SmdG3ai_j77KaFritg3GnT3f-0nThRS37EgEEF38ywGqPwO-w.mp4'
-              ].map((video, index) => (
-                <a
-                  key={`video-${index}`}
-                  href="https://instagram.com/leannasnailart"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 flex-shrink-0 overflow-hidden rounded-xl border-2 border-gray-800 hover:border-nail-pink transition-all duration-300"
-                >
-                  <video 
-                    src={video}
-                    className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:brightness-75"
-                    muted
-                    loop
-                    playsInline
-                    onMouseEnter={(e) => e.currentTarget.play()}
-                    onMouseLeave={(e) => e.currentTarget.pause()}
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40">
-                    <div className="flex items-center space-x-4 text-white">
-                      <div className="flex items-center bg-white/20 rounded-full p-2">
-                        <Heart className="w-6 h-6 fill-white" />
-                      </div>
-                      <div className="flex items-center bg-white/20 rounded-full p-2">
-                        <MessageCircle className="w-6 h-6 fill-white" />
-                      </div>
-                    </div>
+
+                  {/* Gallery Indicators */}
+                  <div className="flex justify-center mt-6 space-x-2">
+                    {Array.from({ length: Math.ceil(galleryItems.length / itemsPerView) }, (_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setCurrentGalleryIndex(i * itemsPerView)}
+                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                          Math.floor(currentGalleryIndex / itemsPerView) === i 
+                            ? 'bg-nail-pink' 
+                            : 'bg-gray-600 hover:bg-gray-500'
+                        }`}
+                      />
+                    ))}
                   </div>
-                  <div className="absolute bottom-2 right-2 bg-black/60 rounded-full p-1">
-                    <div className="w-6 h-6 flex items-center justify-center">
-                      <div className="w-0 h-0 border-l-4 border-l-white border-t-2 border-t-transparent border-b-2 border-b-transparent ml-1"></div>
-                    </div>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
-          
-          <div className="text-center text-gray-400 text-sm mb-4">
-            <p>← Scroll horizontally to see more →</p>
+                </>
+              );
+            })()}
           </div>
 
           <div className="text-center">
