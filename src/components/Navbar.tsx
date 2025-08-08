@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,7 +7,6 @@ const Navbar: React.FC = () => {
   const navLinks = [
     { path: '#home', label: 'Home' },
     { path: '#services', label: 'Services' },
-    { path: '#booking', label: 'Book Now' },
     { path: '#gallery', label: 'Gallery' },
     { path: '#about', label: 'About' },
     { path: '#contact', label: 'Contact' },
@@ -17,7 +16,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className="sticky top-0 z-50 bg-black/90 backdrop-blur-sm border-b border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-32">
+        <div className="flex items-center justify-between h-44">
           <div className="flex items-center">
             <a 
               href="#home"
@@ -33,54 +32,40 @@ const Navbar: React.FC = () => {
                 <img 
                   src="/logo.png" 
                   alt="Nail Salon Logo" 
-                  className="relative z-10 h-28 w-auto transition-transform duration-300 group-hover:scale-110 drop-shadow-lg"
+                  className="relative z-10 h-40 w-auto transition-transform duration-300 group-hover:scale-110 drop-shadow-lg"
                 />
               </div>
             </a>
           </div>
 
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-6">
+          <div className="hidden md:flex items-center space-x-8">
+            <div className="flex items-baseline space-x-6">
               {navLinks.map((link) => (
                 <a
                   key={link.path}
                   href={link.path}
-                  className={`font-medium transition-all duration-300 ${
-                    link.label === 'Book Now' 
-                      ? 'group relative overflow-hidden bg-gradient-to-r from-nail-pink via-pink-500 to-nail-pink text-white px-6 py-3 rounded-xl hover:scale-110 active:scale-95 transform-gpu border border-nail-pink/50 shadow-lg shadow-nail-pink/30' 
-                      : 'text-gray-300 hover:text-nail-pink transition-colors duration-200'
-                  }`}
-                  style={link.label === 'Book Now' ? {
-                    boxShadow: '0 0 20px rgba(255, 105, 180, 0.3), 0 0 40px rgba(255, 105, 180, 0.1), inset 0 0 10px rgba(255, 255, 255, 0.1)'
-                  } : {}}
+                  className="relative text-gray-300 hover:text-white font-medium transition-all duration-300 group"
                   onClick={(e) => {
                     e.preventDefault();
                     const element = document.querySelector(link.path);
                     element?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
-                  {link.label === 'Book Now' ? (
-                    <>
-                      <span className="absolute inset-0 bg-gradient-to-r from-pink-400 via-nail-pink to-pink-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse rounded-xl"></span>
-                      <span className="absolute inset-0 bg-white/20 scale-0 group-active:scale-100 transition-transform duration-150 rounded-xl"></span>
-                      <span className="absolute -inset-0.5 bg-gradient-to-r from-nail-pink to-pink-500 rounded-xl blur-sm opacity-50 group-hover:opacity-80 transition-opacity duration-300"></span>
-                      <span className="relative z-10 font-bold">{link.label}</span>
-                    </>
-                  ) : (
-                    link.label
-                  )}
+                  {link.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-nail-pink transition-all duration-300 group-hover:w-full"></span>
                 </a>
               ))}
             </div>
-          </div>
-
-          <div className="hidden md:flex items-center">
+            
             <a
-              href="tel:+1234567890"
-              className="flex items-center text-gray-300 hover:text-nail-pink transition-colors"
+              href="#booking"
+              className="text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 shadow-lg shadow-pink-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all duration-300 hover:scale-105"
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#booking')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
-              <Phone size={18} className="mr-2" />
-              <span>(123) 456-7890</span>
+              Book Now
             </a>
           </div>
 
@@ -108,29 +93,21 @@ const Navbar: React.FC = () => {
                   const element = document.querySelector(link.path);
                   element?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 ${
-                  link.label === 'Book Now' 
-                    ? 'group relative overflow-hidden bg-gradient-to-r from-nail-pink to-pink-500 text-white hover:scale-105 hover:shadow-lg hover:shadow-nail-pink/40 active:scale-95 transform-gpu' 
-                    : 'text-gray-300 hover:text-nail-pink hover:bg-gray-900 transition-colors'
-                }`}
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-900 transition-colors"
               >
-                {link.label === 'Book Now' ? (
-                  <>
-                    <span className="absolute inset-0 bg-gradient-to-r from-pink-400 to-nail-pink opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-md"></span>
-                    <span className="absolute inset-0 bg-white/20 scale-0 group-active:scale-100 transition-transform duration-150 rounded-md"></span>
-                    <span className="relative z-10">{link.label}</span>
-                  </>
-                ) : (
-                  link.label
-                )}
+                {link.label}
               </a>
             ))}
             <a
-              href="tel:+1234567890"
-              className="flex items-center text-gray-300 hover:text-nail-pink px-3 py-2"
+              href="#booking"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsOpen(false);
+                document.querySelector('#booking')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="block mx-3 mt-4 text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 shadow-lg shadow-pink-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all duration-300"
             >
-              <Phone size={18} className="mr-2" />
-              <span>(123) 456-7890</span>
+              Book Now
             </a>
           </div>
         </div>
