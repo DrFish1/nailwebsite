@@ -203,24 +203,24 @@ const HomePage: React.FC = () => {
           <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-nail-pink-dark/3 rounded-full blur-2xl animate-pulse delay-1000"></div>
         </div>
 
-        <div className="relative z-10 flex items-center min-h-screen px-3 sm:px-4 md:px-6 lg:px-8">
+        <div className="relative z-10 flex items-center min-h-screen px-4 sm:px-6 md:px-8 lg:px-8">
           <div className="max-w-7xl mx-auto w-full">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
               
               {/* Left Column - Main Content */}
-              <div className="space-y-8">
+              <div className="space-y-4 sm:space-y-6 lg:space-y-8">
                 {/* Badge */}
-                <div className="inline-flex items-center px-4 py-2 bg-nail-pink/10 border border-nail-pink/20 rounded-full text-nail-pink text-sm font-medium backdrop-blur-sm">
-                  <Sparkles className="w-4 h-4 mr-2" />
+                <div className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-nail-pink/10 border border-nail-pink/20 rounded-full text-nail-pink text-xs sm:text-sm font-medium backdrop-blur-sm">
+                  <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
                   Premium Nail Artistry
                 </div>
 
                 {/* Main Heading */}
-                <div className="space-y-6">
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
+                <div className="space-y-3 sm:space-y-4 lg:space-y-6">
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
                     <span className="block mb-2">Experience</span>
                     <span className="block mb-2">
-                      <span className="inline-block bg-gradient-to-r from-nail-pink via-nail-pink-dark to-nail-pink-light px-6 py-3 rounded-2xl text-black font-bold shadow-2xl shadow-nail-pink/30 border border-nail-pink/40">
+                      <span className="inline-block bg-gradient-to-r from-nail-pink via-nail-pink-dark to-nail-pink-light px-3 py-1.5 sm:px-4 sm:py-2 lg:px-6 lg:py-3 rounded-xl sm:rounded-2xl text-black font-bold shadow-2xl shadow-nail-pink/30 border border-nail-pink/40">
                         <RotatingText
                           texts={amazingSynonyms}
                           rotationInterval={2500}
@@ -230,23 +230,23 @@ const HomePage: React.FC = () => {
                       </span>
                     </span>
                     <span className="block mb-4 text-white">Nails</span>
-                    <span className="block mt-4 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light text-gray-300 leading-relaxed">
+                    <span className="block mt-2 sm:mt-3 lg:mt-4 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-light text-gray-300 leading-relaxed">
                       Express Yourself
                     </span>
                   </h1>
                 </div>
 
                 {/* Description */}
-                <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-400 leading-relaxed max-w-2xl">
+                <p className="text-sm sm:text-base lg:text-lg text-gray-400 leading-relaxed max-w-2xl">
                   Transform your style with premium nail artistry. From minimalist elegance to bold creative designs, 
                   I bring your vision to life with precision and passion.
                 </p>
 
                 {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <a 
                     href="#booking"
-                    className="group relative overflow-hidden bg-gradient-to-r from-nail-pink to-nail-pink-dark text-black font-bold py-4 px-8 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 inline-flex items-center justify-center shadow-2xl shadow-nail-pink/25 hover:shadow-nail-pink/40 border border-nail-pink/20"
+                    className="group relative overflow-hidden bg-gradient-to-r from-nail-pink to-nail-pink-dark text-black font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-lg sm:rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 inline-flex items-center justify-center shadow-2xl shadow-nail-pink/25 hover:shadow-nail-pink/40 border border-nail-pink/20 text-sm sm:text-base"
                     onClick={(e) => {
                       e.preventDefault();
                       document.querySelector('#booking')?.scrollIntoView({ behavior: 'smooth' });
@@ -255,13 +255,13 @@ const HomePage: React.FC = () => {
                     <span className="absolute inset-0 bg-gradient-to-r from-nail-pink-light to-nail-pink opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                     <span className="relative z-10 flex items-center">
                       Book Appointment
-                      <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
+                      <ChevronRight className="ml-1.5 sm:ml-2 group-hover:translate-x-1 transition-transform duration-300" size={16} />
                     </span>
                   </a>
                   
                   <a 
                     href="#services"
-                    className="group relative overflow-hidden bg-transparent border-2 border-nail-pink/30 text-white hover:text-black font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 inline-flex items-center justify-center backdrop-blur-sm hover:bg-nail-pink/10 text-sm sm:text-base"
+                    className="group relative overflow-hidden bg-transparent border-2 border-nail-pink/30 text-white hover:text-black font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-lg sm:rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 inline-flex items-center justify-center backdrop-blur-sm hover:bg-nail-pink/10 text-sm sm:text-base"
                     onClick={(e) => {
                       e.preventDefault();
                       document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' });
@@ -273,18 +273,18 @@ const HomePage: React.FC = () => {
                 </div>
 
                 {/* Stats */}
-                <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-800">
+                <div className="grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 pt-6 sm:pt-8 border-t border-gray-800">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-nail-pink">500+</div>
-                    <div className="text-sm text-gray-400">Happy Clients</div>
+                    <div className="text-lg sm:text-xl lg:text-2xl font-bold text-nail-pink">500+</div>
+                    <div className="text-xs sm:text-sm text-gray-400">Happy Clients</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-nail-pink">Premium</div>
-                    <div className="text-sm text-gray-400">Quality</div>
+                    <div className="text-lg sm:text-xl lg:text-2xl font-bold text-nail-pink">Premium</div>
+                    <div className="text-xs sm:text-sm text-gray-400">Quality</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-nail-pink">100%</div>
-                    <div className="text-sm text-gray-400">Satisfaction</div>
+                    <div className="text-lg sm:text-xl lg:text-2xl font-bold text-nail-pink">100%</div>
+                    <div className="text-xs sm:text-sm text-gray-400">Satisfaction</div>
                   </div>
                 </div>
               </div>
@@ -348,44 +348,44 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Premium Services Section */}
-      <section id="services" className="py-12 sm:py-16 md:py-20 px-3 sm:px-4 bg-gradient-to-b from-black to-nail-black">
+      <section id="services" className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-b from-black to-nail-black">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
               My Premium <span className="text-nail-pink">Nail Services</span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto px-4 sm:px-0">
               I offer luxury nail treatments designed to enhance your natural beauty and boost your confidence. 
               Each service is carefully crafted with premium products and personalized attention.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12 lg:mb-16">
             {detailedServices.map((service, index) => (
               <div
                 key={index}
-                className="group relative bg-gradient-to-br from-black/80 to-nail-black/60 border border-gray-800/50 rounded-2xl p-8 hover:border-nail-pink/50 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl hover:shadow-nail-pink/10"
+                className="group relative bg-gradient-to-br from-black/80 to-nail-black/60 border border-gray-800/50 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 hover:border-nail-pink/50 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl hover:shadow-nail-pink/10"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-nail-pink/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-br from-nail-pink/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl sm:rounded-2xl" />
                 
                 <div className="relative z-10">
-                  <div className="w-16 h-16 bg-nail-pink/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-nail-pink/20 transition-colors duration-300">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-nail-pink/10 rounded-full flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-nail-pink/20 transition-colors duration-300">
                     {service.icon}
                   </div>
                   
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-nail-pink transition-colors duration-300">
+                  <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-3 sm:mb-4 group-hover:text-nail-pink transition-colors duration-300">
                     {service.name}
                   </h3>
                   
-                  <p className="text-gray-300 leading-relaxed mb-6">
+                  <p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-4 sm:mb-6">
                     {service.description}
                   </p>
                   
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-800/50">
-                    <div className="text-nail-pink font-bold text-lg">
+                  <div className="flex items-center justify-between pt-3 sm:pt-4 border-t border-gray-800/50">
+                    <div className="text-nail-pink font-bold text-base sm:text-lg">
                       {service.price}
                     </div>
-                    <div className="text-gray-400 text-sm">
+                    <div className="text-gray-400 text-xs sm:text-sm">
                       {service.duration}
                     </div>
                   </div>
@@ -399,32 +399,32 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Booking Section */}
-      <section id="booking" className="py-12 sm:py-16 md:py-20 px-3 sm:px-4 bg-gradient-to-b from-nail-black to-black">
+      <section id="booking" className="py-6 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-6 bg-gradient-to-b from-nail-black to-black">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <div className="text-center mb-6 sm:mb-8 lg:mb-12">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4">
               Book Your Appointment <span className="text-nail-pink">with Me</span>
             </h2>
-            <p className="text-xl text-gray-300">
+            <p className="text-base sm:text-lg text-gray-300 px-4 sm:px-0">
               Let's schedule your personalized nail experience in just a few steps
             </p>
           </div>
 
-          <div className="flex items-center justify-center mb-8">
+          <div className="flex items-center justify-center mb-4 sm:mb-6 lg:mb-8">
             {[1, 2, 3].map((i) => (
               <React.Fragment key={i}>
                 <div
-                  className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all ${
+                  className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-sm sm:text-base font-semibold transition-all ${
                     step >= i
                       ? 'bg-nail-pink text-white'
                       : 'bg-gray-800 text-gray-400'
                   }`}
                 >
-                  {step > i ? <Check size={20} /> : i}
+                  {step > i ? <Check size={16} className="sm:w-5 sm:h-5" /> : i}
                 </div>
                 {i < 3 && (
                   <div
-                    className={`w-16 md:w-24 h-1 transition-all ${
+                    className={`w-12 sm:w-16 md:w-20 h-1 transition-all ${
                       step > i ? 'bg-nail-pink' : 'bg-gray-800'
                     }`}
                   />
@@ -433,12 +433,12 @@ const HomePage: React.FC = () => {
             ))}
           </div>
 
-          <div className="bg-black/50 border border-gray-800 rounded-2xl p-6 md:p-8">
+          <div className="bg-black/50 border border-gray-800 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 max-h-[70vh] overflow-y-auto">
             {/* Step Content */}
             {step === 1 && (
               <div>
-                <h3 className="text-2xl font-bold text-white mb-6">Select Your Services</h3>
-                <p className="text-gray-300 mb-6">Choose the services you'd like. Click on a service to see available options:</p>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4 lg:mb-6">Select Your Services</h3>
+                <p className="text-sm sm:text-base text-gray-300 mb-3 sm:mb-4 lg:mb-6">Choose the services you'd like. Click on a service to see available options:</p>
                 
                 <div className="space-y-4">
                   {Object.entries(services).map(([mainService, options]) => (
@@ -680,20 +680,20 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Instagram Gallery */}
-      <section id="gallery" className="py-12 sm:py-16 md:py-20 px-3 sm:px-4 bg-gradient-to-b from-nail-black to-black">
+      <section id="gallery" className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-b from-nail-black to-black">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center mb-6">
-              <div className="bg-gradient-to-r from-nail-pink to-nail-pink-dark p-3 rounded-full">
-                <Instagram className="w-8 h-8 text-white" />
+          <div className="text-center mb-6 sm:mb-8 lg:mb-12">
+            <div className="flex items-center justify-center mb-4 sm:mb-6">
+              <div className="bg-gradient-to-r from-nail-pink to-nail-pink-dark p-2 sm:p-3 rounded-full">
+                <Instagram className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">Follow My Work</h2>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2">Follow My Work</h2>
             <a 
               href="https://instagram.com/leannasnailart" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-nail-pink hover:text-nail-pink-light transition-colors text-lg font-medium"
+              className="text-nail-pink hover:text-nail-pink-light transition-colors text-base sm:text-lg font-medium"
             >
               @leannasnailart
             </a>
@@ -715,7 +715,16 @@ const HomePage: React.FC = () => {
                     'AQNrMfE__C4xuNNdqP82qcdRd0pxIuhE80Rlm15FWHGRpz-SmdG3ai_j77KaFritg3GnT3f-0nThRS37EgEEF38ywGqPwO-w.mp4'].map(vid => ({ type: 'video', src: `/images/${vid}` }))
               ];
 
-              const itemsPerView = 3;
+              const getItemsPerView = () => {
+                if (typeof window !== 'undefined') {
+                  if (window.innerWidth < 640) return 1; // mobile
+                  if (window.innerWidth < 1024) return 2; // tablet
+                  return 3; // desktop
+                }
+                return 1; // default for SSR
+              };
+              
+              const itemsPerView = getItemsPerView();
               const maxIndex = Math.max(0, galleryItems.length - itemsPerView);
 
               return (
@@ -724,28 +733,28 @@ const HomePage: React.FC = () => {
                   <button
                     onClick={() => setCurrentGalleryIndex(Math.max(0, currentGalleryIndex - 1))}
                     disabled={currentGalleryIndex === 0}
-                    className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-nail-pink/80 hover:bg-nail-pink text-white rounded-full p-3 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+                    className="absolute left-0 sm:left-2 top-1/2 -translate-y-1/2 z-10 bg-nail-pink/80 hover:bg-nail-pink text-white rounded-full p-2 sm:p-3 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
                   >
-                    <ChevronLeft size={24} />
+                    <ChevronLeft size={16} className="sm:w-6 sm:h-6" />
                   </button>
 
                   <button
                     onClick={() => setCurrentGalleryIndex(Math.min(maxIndex, currentGalleryIndex + 1))}
                     disabled={currentGalleryIndex >= maxIndex}
-                    className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-nail-pink/80 hover:bg-nail-pink text-white rounded-full p-3 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+                    className="absolute right-0 sm:right-2 top-1/2 -translate-y-1/2 z-10 bg-nail-pink/80 hover:bg-nail-pink text-white rounded-full p-2 sm:p-3 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
                   >
-                    <ChevronRight size={24} />
+                    <ChevronRight size={16} className="sm:w-6 sm:h-6" />
                   </button>
 
                   {/* Gallery Items */}
-                  <div className="flex justify-center gap-4 mx-12">
+                  <div className="flex justify-center gap-2 sm:gap-3 lg:gap-4 mx-8 sm:mx-10 lg:mx-12">
                     {galleryItems.slice(currentGalleryIndex, currentGalleryIndex + itemsPerView).map((item, index) => (
                       <a
                         key={`${item.type}-${currentGalleryIndex + index}`}
                         href="https://instagram.com/leannasnailart"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 flex-shrink-0 overflow-hidden rounded-xl border-2 border-gray-800 hover:border-nail-pink transition-all duration-300"
+                        className="group relative w-full max-w-xs h-64 sm:h-72 lg:h-80 flex-shrink-0 overflow-hidden rounded-lg sm:rounded-xl border-2 border-gray-800 hover:border-nail-pink transition-all duration-300"
                       >
                         {item.type === 'image' ? (
                           <img 
@@ -790,12 +799,12 @@ const HomePage: React.FC = () => {
                   </div>
 
                   {/* Gallery Indicators */}
-                  <div className="flex justify-center mt-6 space-x-2">
+                  <div className="flex justify-center mt-4 sm:mt-6 space-x-1.5 sm:space-x-2">
                     {Array.from({ length: Math.ceil(galleryItems.length / itemsPerView) }, (_, i) => (
                       <button
                         key={i}
                         onClick={() => setCurrentGalleryIndex(i * itemsPerView)}
-                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                           Math.floor(currentGalleryIndex / itemsPerView) === i 
                             ? 'bg-nail-pink' 
                             : 'bg-gray-600 hover:bg-gray-500'
@@ -808,15 +817,15 @@ const HomePage: React.FC = () => {
             })()}
           </div>
 
-          <div className="text-center">
+          <div className="text-center mt-6 sm:mt-8">
             <a 
               href="https://instagram.com/leannasnailart"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 shadow-lg shadow-pink-500/50 font-medium rounded-lg text-sm px-6 py-3 transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 shadow-lg shadow-pink-500/50 font-medium rounded-lg text-sm sm:text-base px-4 py-2.5 sm:px-6 sm:py-3 transition-all duration-300 hover:scale-105"
             >
-              <Instagram className="mr-2" size={20} />
-              View More on Instagram
+              <Instagram className="mr-1.5 sm:mr-2" size={16} />
+              <span className="sm:inline">View More on Instagram</span>
             </a>
           </div>
         </div>
