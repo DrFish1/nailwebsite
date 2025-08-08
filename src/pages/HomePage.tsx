@@ -260,8 +260,10 @@ const HomePage: React.FC = () => {
                   I bring your vision to life with precision and passion.
                 </p>
 
-                {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-4 items-center mt-20 sm:mt-6">
+              </div>
+              
+              {/* CTA Buttons - Moved outside to control spacing independently */}
+              <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-4 items-center mt-12 sm:mt-6">
                   <a 
                     href="#booking"
                     className="group relative overflow-hidden bg-gradient-to-r from-nail-pink to-nail-pink-dark text-black font-bold py-2.5 px-5 sm:py-4 sm:px-8 rounded-lg sm:rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 inline-flex items-center justify-center shadow-2xl shadow-nail-pink/25 hover:shadow-nail-pink/40 border border-nail-pink/20 text-sm sm:text-base max-w-xs w-full sm:max-w-none sm:w-auto"
@@ -289,7 +291,7 @@ const HomePage: React.FC = () => {
                     <span className="relative z-10">Explore Services</span>
                   </a>
                 </div>
-
+                
                 {/* Stats - Hidden on mobile */}
                 <div className="hidden sm:grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 pt-6 sm:pt-8 border-t border-gray-800">
                   <div className="text-center">
