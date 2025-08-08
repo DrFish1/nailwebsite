@@ -171,12 +171,12 @@ const HomePage: React.FC = () => {
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen bg-black overflow-hidden">
         {/* Aurora Background */}
-        <div className="absolute inset-0">
+        <div className="absolute top-0 left-0 right-0 h-96">
           <Aurora 
             colorStops={["#ea4c98", "#f06bb3", "#d63384"]} 
             amplitude={1.5}
             blend={0.7}
-            speed={0.8}
+            speed={0.4}
           />
         </div>
 
@@ -202,8 +202,8 @@ const HomePage: React.FC = () => {
                 <div className="space-y-6">
                   <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
                     <span className="block mb-2">Experience</span>
-                    <span className="block">
-                      <span className="inline-block bg-gradient-to-r from-nail-pink via-nail-pink-dark to-nail-pink-light px-6 py-3 rounded-2xl text-black font-bold shadow-2xl shadow-nail-pink/30 border border-nail-pink/40 mr-4">
+                    <span className="block mb-2">
+                      <span className="inline-block bg-gradient-to-r from-nail-pink via-nail-pink-dark to-nail-pink-light px-6 py-3 rounded-2xl text-black font-bold shadow-2xl shadow-nail-pink/30 border border-nail-pink/40">
                         <RotatingText
                           texts={amazingSynonyms}
                           rotationInterval={2500}
@@ -211,8 +211,8 @@ const HomePage: React.FC = () => {
                           elementLevelClassName="text-black font-bold"
                         />
                       </span>
-                      <span className="text-white">Nails</span>
                     </span>
+                    <span className="block mb-4 text-white">Nails</span>
                     <span className="block mt-4 text-2xl sm:text-3xl lg:text-4xl font-light text-gray-300 leading-relaxed">
                       Express Yourself
                     </span>
@@ -670,38 +670,87 @@ const HomePage: React.FC = () => {
             </a>
           </div>
           
-          <div className="grid grid-cols-3 md:grid-cols-5 gap-1 md:gap-2 mb-8">
-            {[
-              '/images/511441557_17890778811269129_8114663373759375153_n.jpg',
-              '/images/514515057_17890778652269129_8760343329118656117_n.jpg',
-              '/images/522670020_17893478088269129_3874938671507511412_n.jpg',
-              '/images/524396385_17894060979269129_36320443423056956_n.jpg',
-              '/images/524420889_17894061024269129_1191177205688230337_n.jpg'
-            ].map((image, index) => (
-              <a
-                key={index}
-                href="https://instagram.com/leannasnailart"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative group overflow-hidden aspect-square bg-black"
-              >
-                <img 
-                  src={image}
-                  alt={`Nail art design ${index + 1}`}
-                  className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:brightness-75"
-                />
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="flex items-center space-x-4 text-white">
-                    <div className="flex items-center">
-                      <Heart className="w-6 h-6 fill-white" />
-                    </div>
-                    <div className="flex items-center">
-                      <MessageCircle className="w-6 h-6 fill-white" />
+          <div className="overflow-x-auto pb-4">
+            <div className="flex space-x-3 w-max">
+              {[
+                '/images/503680241_17888373270269129_2690675863906272825_n.jpg',
+                '/images/503835599_17887900803269129_5283935084631216084_n.jpg',
+                '/images/504122231_17888062995269129_4729375017275520615_n.jpg',
+                '/images/510951914_17890377492269129_1537835396454570267_n.jpg',
+                '/images/511441557_17890778811269129_8114663373759375153_n.jpg',
+                '/images/514515057_17890778652269129_8760343329118656117_n.jpg',
+                '/images/525564107_17894765655269129_489999139858400517_n.jpg',
+                '/images/528685970_17894765607269129_1230354279370501049_n.jpg'
+              ].map((image, index) => (
+                <a
+                  key={index}
+                  href="https://instagram.com/leannasnailart"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative w-64 h-64 md:w-80 md:h-80 flex-shrink-0 overflow-hidden rounded-xl border-2 border-gray-800 hover:border-nail-pink transition-all duration-300"
+                >
+                  <img 
+                    src={image}
+                    alt={`Nail art design ${index + 1}`}
+                    className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:brightness-75"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40">
+                    <div className="flex items-center space-x-4 text-white">
+                      <div className="flex items-center bg-white/20 rounded-full p-2">
+                        <Heart className="w-6 h-6 fill-white" />
+                      </div>
+                      <div className="flex items-center bg-white/20 rounded-full p-2">
+                        <MessageCircle className="w-6 h-6 fill-white" />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </a>
-            ))}
+                </a>
+              ))}
+              
+              {/* Video content */}
+              {[
+                '/images/AQMzueuh1yYxf6u7Vbyi-nmJaZNd0BcKltBMXzuuY2V52RfQLATTLXAJfYeYEPp7dtb9feIC1eKrhMJF4BMBI0L6FJ_w4lSZ.mp4',
+                '/images/AQNK5rskVUZO2WTLypSbDp7Mz5svmGsA7vIT1BFRyA3nsDxbm6Ozv4WzwWv3YznDDPE5D083s12CcE8Du-xK5A1ZfE6eQ4lj.mp4',
+                '/images/AQNrMfE__C4xuNNdqP82qcdRd0pxIuhE80Rlm15FWHGRpz-SmdG3ai_j77KaFritg3GnT3f-0nThRS37EgEEF38ywGqPwO-w.mp4'
+              ].map((video, index) => (
+                <a
+                  key={`video-${index}`}
+                  href="https://instagram.com/leannasnailart"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative w-64 h-64 md:w-80 md:h-80 flex-shrink-0 overflow-hidden rounded-xl border-2 border-gray-800 hover:border-nail-pink transition-all duration-300"
+                >
+                  <video 
+                    src={video}
+                    className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:brightness-75"
+                    muted
+                    loop
+                    playsInline
+                    onMouseEnter={(e) => e.currentTarget.play()}
+                    onMouseLeave={(e) => e.currentTarget.pause()}
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40">
+                    <div className="flex items-center space-x-4 text-white">
+                      <div className="flex items-center bg-white/20 rounded-full p-2">
+                        <Heart className="w-6 h-6 fill-white" />
+                      </div>
+                      <div className="flex items-center bg-white/20 rounded-full p-2">
+                        <MessageCircle className="w-6 h-6 fill-white" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute bottom-2 right-2 bg-black/60 rounded-full p-1">
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <div className="w-0 h-0 border-l-4 border-l-white border-t-2 border-t-transparent border-b-2 border-b-transparent ml-1"></div>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+          
+          <div className="text-center text-gray-400 text-sm mb-4">
+            <p>← Scroll horizontally to see more →</p>
           </div>
 
           <div className="text-center">

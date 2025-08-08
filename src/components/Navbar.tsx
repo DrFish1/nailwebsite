@@ -39,7 +39,7 @@ const Navbar: React.FC = () => {
       isVisible ? 'translate-y-0' : '-translate-y-full'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-28 overflow-visible">
+        <div className="flex items-center justify-between h-28 md:h-28 sm:h-20 overflow-visible">
           <div className="flex items-center">
             <a 
               href="#home"
@@ -54,7 +54,7 @@ const Navbar: React.FC = () => {
                 <img 
                   src="/logo.png" 
                   alt="Nail Salon Logo" 
-                  className="relative z-10 h-40 w-auto transition-transform duration-300 group-hover:scale-105 drop-shadow-2xl"
+                  className="relative z-10 h-40 md:h-40 sm:h-32 w-auto transition-transform duration-300 group-hover:scale-105 drop-shadow-2xl"
                 />
               </div>
             </a>
