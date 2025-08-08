@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
 
 
   return (
-    <nav className={`sticky top-0 z-50 bg-black/90 backdrop-blur-sm border-b border-gray-800 transition-transform duration-300 ${
+    <nav className={`sticky top-0 z-50 bg-black/90 backdrop-blur-sm border-b border-gray-800 transition-transform duration-300 hidden md:block ${
       isVisible ? 'translate-y-0' : '-translate-y-full'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

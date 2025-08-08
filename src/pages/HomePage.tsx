@@ -186,7 +186,7 @@ const HomePage: React.FC = () => {
           <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-nail-pink-dark/3 rounded-full blur-2xl animate-pulse delay-1000"></div>
         </div>
 
-        <div className="relative z-10 flex items-center min-h-screen px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 flex items-center min-h-screen px-3 sm:px-4 md:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto w-full">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               
@@ -200,7 +200,7 @@ const HomePage: React.FC = () => {
 
                 {/* Main Heading */}
                 <div className="space-y-6">
-                  <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
                     <span className="block mb-2">Experience</span>
                     <span className="block mb-2">
                       <span className="inline-block bg-gradient-to-r from-nail-pink via-nail-pink-dark to-nail-pink-light px-6 py-3 rounded-2xl text-black font-bold shadow-2xl shadow-nail-pink/30 border border-nail-pink/40">
@@ -213,14 +213,14 @@ const HomePage: React.FC = () => {
                       </span>
                     </span>
                     <span className="block mb-4 text-white">Nails</span>
-                    <span className="block mt-4 text-2xl sm:text-3xl lg:text-4xl font-light text-gray-300 leading-relaxed">
+                    <span className="block mt-4 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light text-gray-300 leading-relaxed">
                       Express Yourself
                     </span>
                   </h1>
                 </div>
 
                 {/* Description */}
-                <p className="text-lg lg:text-xl text-gray-400 leading-relaxed max-w-2xl">
+                <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-400 leading-relaxed max-w-2xl">
                   Transform your style with premium nail artistry. From minimalist elegance to bold creative designs, 
                   I bring your vision to life with precision and passion.
                 </p>
@@ -244,7 +244,7 @@ const HomePage: React.FC = () => {
                   
                   <a 
                     href="#services"
-                    className="group relative overflow-hidden bg-transparent border-2 border-nail-pink/30 text-white hover:text-black font-bold py-4 px-8 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 inline-flex items-center justify-center backdrop-blur-sm hover:bg-nail-pink/10"
+                    className="group relative overflow-hidden bg-transparent border-2 border-nail-pink/30 text-white hover:text-black font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 inline-flex items-center justify-center backdrop-blur-sm hover:bg-nail-pink/10 text-sm sm:text-base"
                     onClick={(e) => {
                       e.preventDefault();
                       document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' });
@@ -319,7 +319,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Premium Services Section */}
-      <section id="services" className="py-20 px-4 bg-gradient-to-b from-black to-nail-black">
+      <section id="services" className="py-12 sm:py-16 md:py-20 px-3 sm:px-4 bg-gradient-to-b from-black to-nail-black">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
@@ -344,7 +344,7 @@ const HomePage: React.FC = () => {
                     {service.icon}
                   </div>
                   
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-nail-pink transition-colors duration-300">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-nail-pink transition-colors duration-300">
                     {service.name}
                   </h3>
                   
@@ -370,7 +370,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Booking Section */}
-      <section id="booking" className="py-20 px-4 bg-gradient-to-b from-nail-black to-black">
+      <section id="booking" className="py-12 sm:py-16 md:py-20 px-3 sm:px-4 bg-gradient-to-b from-nail-black to-black">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -651,7 +651,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Instagram Gallery */}
-      <section id="gallery" className="py-20 px-4 bg-gradient-to-b from-nail-black to-black">
+      <section id="gallery" className="py-12 sm:py-16 md:py-20 px-3 sm:px-4 bg-gradient-to-b from-nail-black to-black">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center mb-6">
@@ -659,7 +659,7 @@ const HomePage: React.FC = () => {
                 <Instagram className="w-8 h-8 text-white" />
               </div>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">Follow My Work</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">Follow My Work</h2>
             <a 
               href="https://instagram.com/leannasnailart" 
               target="_blank" 
@@ -687,7 +687,7 @@ const HomePage: React.FC = () => {
                   href="https://instagram.com/leannasnailart"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative w-64 h-64 md:w-80 md:h-80 flex-shrink-0 overflow-hidden rounded-xl border-2 border-gray-800 hover:border-nail-pink transition-all duration-300"
+                  className="group relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 flex-shrink-0 overflow-hidden rounded-xl border-2 border-gray-800 hover:border-nail-pink transition-all duration-300"
                 >
                   <img 
                     src={image}
@@ -718,7 +718,7 @@ const HomePage: React.FC = () => {
                   href="https://instagram.com/leannasnailart"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative w-64 h-64 md:w-80 md:h-80 flex-shrink-0 overflow-hidden rounded-xl border-2 border-gray-800 hover:border-nail-pink transition-all duration-300"
+                  className="group relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 flex-shrink-0 overflow-hidden rounded-xl border-2 border-gray-800 hover:border-nail-pink transition-all duration-300"
                 >
                   <video 
                     src={video}
@@ -768,7 +768,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Google Reviews Widget */}
-      <section className="py-20 px-4 bg-gradient-to-b from-black to-nail-black">
+      <section className="py-12 sm:py-16 md:py-20 px-3 sm:px-4 bg-gradient-to-b from-black to-nail-black">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center mb-6">
@@ -776,7 +776,7 @@ const HomePage: React.FC = () => {
                 <Star className="w-8 h-8 text-white fill-white" />
               </div>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Client Reviews</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Client Reviews</h2>
             <div className="flex items-center justify-center mb-4">
               <div className="flex space-x-1">
                 {[1, 2, 3, 4, 5].map((star) => (
@@ -1073,12 +1073,12 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-nail-pink to-pink-600">
+      <section className="py-12 sm:py-16 md:py-20 px-3 sm:px-4 bg-gradient-to-r from-nail-pink to-pink-600">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Create Your Perfect Nails?
           </h2>
-          <p className="text-xl text-white/90 mb-8">
+          <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8">
             Let's work together to bring your nail vision to life. Book your appointment and experience personalized nail artistry.
           </p>
           <a 
