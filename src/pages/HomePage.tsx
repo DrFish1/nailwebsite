@@ -217,7 +217,7 @@ const HomePage: React.FC = () => {
                   <img 
                     src="/logo.png" 
                     alt="Leanna's Nail Art Logo" 
-                    className="relative z-10 w-24 h-24 sm:w-28 sm:h-28 object-contain rounded-full border-2 border-nail-pink/30 bg-black/20 backdrop-blur-sm p-2"
+                    className="relative z-10 w-32 h-32 sm:w-36 sm:h-36 object-contain rounded-full border-2 border-nail-pink/30 bg-black/20 backdrop-blur-sm p-3"
                   />
                 </div>
               </div>
@@ -245,14 +245,14 @@ const HomePage: React.FC = () => {
                       </span>
                     </span>
                     <span className="block mb-4 text-white">Nails</span>
-                    <span className="block mt-2 sm:mt-3 lg:mt-4 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-light text-gray-300 leading-relaxed">
+                    <span className="block mt-2 sm:mt-3 lg:mt-4 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light text-gray-300 leading-relaxed">
                       Express Yourself
                     </span>
                   </h1>
                 </div>
 
-                {/* Description */}
-                <p className="text-sm sm:text-base lg:text-lg text-gray-400 leading-relaxed max-w-2xl">
+                {/* Description - Hidden on mobile */}
+                <p className="hidden sm:block text-sm sm:text-base lg:text-lg text-gray-400 leading-relaxed max-w-2xl">
                   Transform your style with premium nail artistry. From minimalist elegance to bold creative designs, 
                   I bring your vision to life with precision and passion.
                 </p>
@@ -287,8 +287,8 @@ const HomePage: React.FC = () => {
                   </a>
                 </div>
 
-                {/* Stats */}
-                <div className="grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 pt-6 sm:pt-8 border-t border-gray-800">
+                {/* Stats - Hidden on mobile */}
+                <div className="hidden sm:grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 pt-6 sm:pt-8 border-t border-gray-800">
                   <div className="text-center">
                     <div className="text-lg sm:text-xl lg:text-2xl font-bold text-nail-pink">500+</div>
                     <div className="text-xs sm:text-sm text-gray-400">Happy Clients</div>
