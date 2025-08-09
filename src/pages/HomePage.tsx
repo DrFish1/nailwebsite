@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronRight, ChevronLeft, ChevronDown, Sparkles, Heart, Shield, Droplet, RefreshCw, Palette, User, Phone, Mail, Check, MapPin, Clock, Send, Facebook, Instagram, Twitter, MessageCircle, Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import FAQ from '../components/FAQ';
 import RotatingText from '../components/RotatingText';
 import Aurora from '../components/Aurora';
@@ -260,20 +261,16 @@ const HomePage: React.FC = () => {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-4 items-center mt-6 sm:mt-8">
-                  <a 
-                    href="#booking"
+                  <Link 
+                    to="/booking"
                     className="group relative overflow-hidden bg-gradient-to-r from-nail-pink to-nail-pink-dark text-black font-bold py-2.5 px-5 sm:py-4 sm:px-8 rounded-lg sm:rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 inline-flex items-center justify-center shadow-2xl shadow-nail-pink/25 hover:shadow-nail-pink/40 border border-nail-pink/20 text-sm sm:text-base max-w-xs w-full sm:max-w-none sm:w-auto"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      document.querySelector('#booking')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
                   >
                     <span className="absolute inset-0 bg-gradient-to-r from-nail-pink-light to-nail-pink opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                     <span className="relative z-10 flex items-center">
                       Book Appointment
                       <ChevronRight className="ml-1.5 sm:ml-2 group-hover:translate-x-1 transition-transform duration-300" size={16} />
                     </span>
-                  </a>
+                  </Link>
                   
                   <a 
                     href="#services"
