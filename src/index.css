@@ -37,3 +37,120 @@ html {
 .section-heading {
   @apply text-3xl md:text-4xl font-bold text-nail-pink mb-8;
 }
+
+/* Mobile Booking System Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounceGentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 20px rgba(234, 76, 152, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 30px rgba(234, 76, 152, 0.6);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+.animate-bounce-gentle {
+  animation: bounceGentle 1s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite alternate;
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Glass morphism effects */
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Service card hover effects */
+.service-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(234, 76, 152, 0.2);
+}
+
+/* Time slot animations */
+.time-slot {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.time-slot:hover {
+  transform: scale(1.05);
+}
+
+/* Calendar carousel smooth scrolling */
+.calendar-swipe {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.calendar-swipe::-webkit-scrollbar {
+  display: none;
+}
+
+/* Summary panel styling */
+.summary-panel {
+  backdrop-filter: blur(20px);
+  background: linear-gradient(135deg, rgba(28, 37, 38, 0.95) 0%, rgba(0, 0, 0, 0.95) 100%);
+  border-top: 1px solid rgba(234, 76, 152, 0.3);
+}
+
+/* Button tap effects */
+.bounce-on-tap {
+  transition: transform 0.1s ease-in-out;
+}
+
+.bounce-on-tap:active {
+  transform: scale(0.95);
+}
